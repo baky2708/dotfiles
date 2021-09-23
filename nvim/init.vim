@@ -39,7 +39,7 @@ set signcolumn=yes
 set timeoutlen=1000
 set ttimeoutlen=50
 
-colorscheme gruvbox
+colorscheme	gruvbox
 highlight Normal guibg=none
 
 source $HOME/.config/nvim/plug-config/coc.vim

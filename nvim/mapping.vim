@@ -62,3 +62,6 @@ endif
 
 "Vim-auto-save
 nnoremap <leader>as :AutoSaveToggle<CR>
+
+"Live-server
+nnoremap <leader>ls :terminal {npx live-server .}<CR>
