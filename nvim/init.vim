@@ -1,12 +1,13 @@
-source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/themes/airline.vim
-source $HOME/.config/nvim/plug.vim
 source $HOME/.config/nvim/mapping.vim
+source $HOME/.config/nvim/plug.vim
+source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/nerdcommenter.vim
 source $HOME/.config/nvim/plug-config/ale.vim
 source $HOME/.config/nvim/plug-config/vim-auto-save.vim
 
 syntax on
+set encoding=UTF-8
 set autoindent
 set smartindent
 set history=5000
@@ -41,5 +42,3 @@ set ttimeoutlen=50
 
 colorscheme	gruvbox
 highlight Normal guibg=none
-
-source $HOME/.config/nvim/plug-config/coc.vim

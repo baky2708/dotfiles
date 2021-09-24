@@ -1,5 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
+Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
 Plug 'dense-analysis/ale'
 Plug 'preservim/nerdcommenter'
@@ -20,5 +22,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'mattn/emmet-vim'
 Plug '907th/vim-auto-save'
 Plug 'wellle/targets.vim'
+Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'iamcco/markdown-preview.vim'
+
 call plug#end()
 

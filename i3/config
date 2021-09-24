@@ -164,8 +164,8 @@ for_window [class="^.*"] border pixel 3
 
 ##key mappings
 #Change keyboard Layout
-bindsym $mod+Mod1+b exec setxkbmap br exec xmodmap ~/Projects/dotfiles/scripts/swapkeys
-bindsym $mod+Mod1+u exec setxkbmap us exec xmodmap ~/Projects/dotfiles/scripts/swapkeys
+bindsym $mod+Mod1+b exec setxkbmap br && xmodmap ~/Projects/dotfiles/scripts/swapkeys
+bindsym $mod+Mod1+u exec setxkbmap us && xmodmap ~/Projects/dotfiles/scripts/swapkeys
 #Open help for us keyboard layout
 bindsym $mod+Mod1+h exec sxiv ~/Pictures/wallpapers/800px-KB_US-International.svg.png floating enable
 

@@ -32,9 +32,9 @@ nnoremap <leader>Y gg"+yG
 
 "NerdTree
 " nnoremap <leader>nn :NERDTreeFocus<CR>
-" nnoremap <leader>nn :NERDTreeToggle<CR>
-" nnoremap <leader>nf :NERDTreeFind<CR>
-nnoremap <leader>nn :Ex<CR>
+nnoremap <leader>nn :NERDTreeToggle<CR>
+nnoremap <leader>nf :NERDTreeFind<CR>
+" nnoremap <leader>nn :Ex<CR>
 
 "airline
 nnoremap <M-l> :bn<cr>
