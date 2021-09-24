@@ -45,7 +45,9 @@ nnoremap <c-x> :bp \|bd #<cr>
 map <leader>/ <Plug>NERDCommenterInvert
 
 "Git fugitive
-nnoremap <leader>gs :G<CR>
+nmap <leader>gs :G<CR>
+nmap <leader>gf :diffget //2<CR>
+nmap <leader>gj :diffget //3<CR>
 
 "Nvim Terminal
 if has('nvim')
