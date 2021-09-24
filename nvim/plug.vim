@@ -11,7 +11,6 @@ Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
@@ -20,6 +19,6 @@ Plug 'Yggdroot/indentLine'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mattn/emmet-vim'
 Plug '907th/vim-auto-save'
-
+Plug 'wellle/targets.vim'
 call plug#end()
 
