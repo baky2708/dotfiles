@@ -28,3 +28,10 @@ if [ -d "$XORG" ]; then
 	sudo mv $XORG /etc/X11/xorg.conf.d-bbak
 fi
 sudo ln -sv ~/Projects/dotfiles/xconfig/xorg.conf.d $XORG
+
+#zsh
+ZSH=~/.zshrc
+if [ -d "$ZSH" ]; then
+	mv ~/.zshrc ~/.zshrc-bbak
+fi
+ln -sv ~/Projects/dotfiles/.zshrc $ZSH
