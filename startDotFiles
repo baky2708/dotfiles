@@ -1,0 +1,30 @@
+#!/bin/sh
+
+##nvim
+NVIM=~/.config/nvim
+if [ -d "$NVIM" ]; then
+	mv $NVIM ~/.config/nvim-bbac
+fi
+ln -sv ~/Projects/dotfiles/nvim $NVIM
+
+#scripts
+SCRIPTS=~/.local/scripts
+if [ -d "$SCRIPTS" ]; then
+	mv ~/.local/scripts ~/.local/scripts-bbak
+fi
+ln -sv ~/Projects/dotfiles/scripts ~/.local/scripts
+export PATH=~/.local/scripts:$PATH
+
+#i3
+I3=~/.config/i3
+if [ -d "$I3" ]; then
+	mv ~/.config/i3 ~/.config/i3-bbak
+fi
+ln -sv ~/Projects/dotfiles/i3 ~/.config/i3
+
+#xconfig
+XORG=/etc/X11/xorg.conf.d
+if [ -d "$XORG" ]; then
+	sudo mv $XORG /etc/X11/xorg.conf.d-bbak
+fi
+sudo ln -sv ~/Projects/dotfiles/xconfig/xorg.conf.d $XORG
