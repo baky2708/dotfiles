@@ -5,6 +5,7 @@ source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/nerdcommenter.vim
 source $HOME/.config/nvim/plug-config/ale.vim
 source $HOME/.config/nvim/plug-config/vim-auto-save.vim
+source $HOME/.config/nvim/plug-config/snippets.vim
 
 syntax on
 set encoding=UTF-8

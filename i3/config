@@ -168,10 +168,10 @@ bindsym $mod+Mod1+u exec setxkbmap us && xmodmap ~/Projects/dotfiles/scripts/swa
 bindsym $mod+Mod1+h exec sxiv ~/Pictures/wallpapers/800px-KB_US-International.svg.png floating enable
 
 #start
-exec --no-startup-id picom --restore
+# exec --no-startup-id picom --restore
 exec --no-startup-id nitrogen --restore
 bindsym $mod+Shift+Return exec firefox
-# exec --no-startup-id picom -b 
+exec --no-startup-id picom -b 
 exec_always ~/.local/scripts/swapcaps
 bindsym $mod+s exec slack
 bindsym $mod+r exec alacritty -e "ranger"
