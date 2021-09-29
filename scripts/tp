@@ -1,0 +1,22 @@
+#!/bin/sh
+
+declare -a array
+i=0
+projects=~/01-trybe/projects
+
+cd $(echo $projects)
+
+for list in *;
+	do 
+		array[$i]=$list
+		echo $i '=>' ${array[$i]}
+		((i++))
+	done
+
+read -n1 selected
+
+
+cd $(echo $projects/${array[$selected]})
+cd $(ls)
+clear
+exec zsh

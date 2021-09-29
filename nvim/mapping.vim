@@ -67,3 +67,11 @@ nnoremap <leader>as :AutoSaveToggle<CR>
 
 "Live-server
 nnoremap <leader>ls :terminal {npx live-server .}<CR>
+
+"Add line empty
+nnoremap <silent><leader>- m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><leader>_ m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><leader>= :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <silent><leader>+ :set paste<CR>m`O<Esc>``:set nopaste<CR>
+
+

@@ -1,0 +1,55 @@
+#!/bin/sh
+
+SPACE1="-----------------------------------"
+SPACE2="___________________________________"
+defaultLocaldownload="$HOME/Music"
+
+echo $SPACE1
+echo "             Welcome!"
+echo "Let's download a nice music for you!"
+echo "     (press Enter to continue)"
+read -p $SPACE1
+echo
+
+echo "1) Write the music you want:"
+read searchedMusic
+echo $SPACE2
+echo
+
+echo "2) If you know, write who owns this music:"
+read whoOwnsMusic
+echo $SPACE2
+echo
+
+echo "3) Do you want to download in some paste in /Music?"
+read localDownload
+echo $SPACE2
+echo
+
+function downloadMusic() {
+
+    if [ -z "$localDownload" ]
+    then
+        cd $defaultLocaldownload
+        youtube-dl -x --audio-format mp3 "ytsearch1: $searchedMusic $whoOwnsMusic"
+    else
+        cd $defaultLocaldownload/$localDownload
+        youtube-dl -x --audio-format mp3 "ytsearch1: $searchedMusic $whoOwnsMusic"
+    fi
+}
+
+while true; do
+echo "Do you want to download this music?"
+echo
+echo "==>> $searchedMusic - $whoOwnsMusic"
+echo
+
+read -p "(pres 'y' to yes or 'n' to not (y/n))" yn
+echo
+    case $yn in
+        [Yy]* ) downloadMusic; break;;
+        [Nn]* ) echo Bye Bye; exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+

@@ -1,0 +1,96 @@
+#!/bin/sh
+clear
+exercises=~/01-trybe/exercises
+x1=$(pwd)
+PWD=$(basename "`pwd`")
+echo --------------------
+echo 'selected: ('$PWD')'
+
+declare -A array
+
+
+
+continue=0
+
+while [[ $continue == 0 ]]; do
+	cd $(echo $exercises)
+	i=0
+	if [ -n "$(ls -l | grep 'd' | awk '{print $9}')" ]; then
+		for k in *;
+		do
+			array[$i]=$k
+			echo $i '=>' ${array[$i]}
+			((i++))
+		done
+
+		array+=('..')
+
+		read -s -n1 selected
+
+		if [[ $selected == '' ]]; then
+			break
+		fi
+
+		if [[ $selected == 'm' ]]; then
+			echo new folder:
+			read  folder
+			mkdir $folder
+		fi
+
+		if [[ $selected == 'r' ]]; then
+			echo rename folder:
+			echo folder:
+			read -s -n1 folder
+			echo new folder:
+			read newFolder
+			mv $(echo ${array[$folder]} $newFolder)
+		fi
+
+		if [[ $selected == 'D' ]]; then
+			echo delete folder:
+			read  folder
+			rm -r ${array[$folder]}
+		fi
+
+		if [[ $selected == 'q' ]]; then
+			clear
+			exit
+		fi
+
+		if [[ $selected == 'h' ]]; then
+			clear
+			echo --------------------
+			echo HELP
+			while true; do
+				echo '(m)ake directory'
+				echo '(r)ename directory'
+				echo '(D)elete directory'
+				echo '(b)ack directory'
+				echo '(h)elp'
+				echo '(q)uit'
+				echo
+				echo 'Press Enter to exit help'
+				read -s ok
+				if [[ $ok == '' ]]; then
+					break
+				fi
+			done
+		fi
+
+		if [[ $selected == 'b' ]]; then
+			exercises+='/..'
+		else
+			exercises+='/'${array[$selected]}
+		fi
+		
+		clear
+		echo
+		echo --------------------
+		echo 'selected: ('$(basename "$exercises")')'
+		echo
+	else
+		continue=1
+	fi
+done
+	cd $(echo $exercises)
+exec zsh
