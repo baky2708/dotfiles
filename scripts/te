@@ -1,15 +1,11 @@
 #!/bin/sh
 clear
-exercises=~/01-trybe/exercises
-x1=$(pwd)
-PWD=$(basename "`pwd`")
 echo --------------------
-echo 'selected: ('$PWD')'
+echo 'selected: ('${array[$selected]}')'
 
 declare -A array
 
-
-
+exercises=~/01-trybe/trybe-exercises
 continue=0
 
 while [[ $continue == 0 ]]; do
@@ -61,6 +57,7 @@ while [[ $continue == 0 ]]; do
 			clear
 			echo --------------------
 			echo HELP
+			echo
 			while true; do
 				echo '(m)ake directory'
 				echo '(r)ename directory'
@@ -86,7 +83,7 @@ while [[ $continue == 0 ]]; do
 		clear
 		echo
 		echo --------------------
-		echo 'selected: ('$(basename "$exercises")')'
+		echo 'selected: ('${array[$selected]}')'
 		echo
 	else
 		continue=1

@@ -104,6 +104,7 @@ alias nvimconfig="nvim ~/.config/nvim"
 alias dotfiles="nvim ~/Projects/dotfiles"
 alias cdotfiles="cd ~/Projects/dotfiles"
 alias mpla="mplayer *"
+alias sx="startx"
 
 #asdf
 . $HOME/.asdf/asdf.sh
