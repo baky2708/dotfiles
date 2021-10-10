@@ -25,9 +25,10 @@ Plug 'mattn/emmet-vim'
 Plug '907th/vim-auto-save'
 Plug 'wellle/targets.vim'
 Plug 'iamcco/mathjax-support-for-mkdp'
-Plug 'iamcco/markdown-preview.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'BurntSushi/ripgrep'
+Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'iamcco/markdown-preview.vim'
 
 call plug#end()
 

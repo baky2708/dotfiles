@@ -1,4 +1,7 @@
 // {
-	// "tsserver.log":"verbose",
-	// "tsserver.trace.server": "verbose"
+// "tsserver.log":"verbose",
+// "tsserver.trace.server": "verbose"
 // }
+{
+	"snippets.userSnippetsDirectory": "~/.config/nvim/snips",
+}

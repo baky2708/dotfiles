@@ -74,4 +74,13 @@ nnoremap <silent><leader>_ m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent><leader>= :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><leader>+ :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
+"markdown preview
+" for normal mode
+nmap <silent> <leader>mv <Plug>MarkdownPreview
+" for insert mode
+" imap <silent> <leader>mv <Plug>MarkdownPreview
+" for normal mode
+nmap <silent> <leader>ms <Plug>StopMarkdownPreview
+" for insert mode
+" imap <silent> <F9> <Plug>StopMarkdownPreview
 

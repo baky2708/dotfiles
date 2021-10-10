@@ -6,6 +6,8 @@ source $HOME/.config/nvim/plug-config/nerdcommenter.vim
 source $HOME/.config/nvim/plug-config/ale.vim
 source $HOME/.config/nvim/plug-config/vim-auto-save.vim
 source $HOME/.config/nvim/plug-config/snippets.vim
+source $HOME/.config/nvim/plug-config/md-preview.vim
+source $HOME/.config/nvim/plug-config/indent-line.vim
 
 syntax on
 set encoding=UTF-8
@@ -40,6 +42,7 @@ set colorcolumn=80
 set signcolumn=yes
 set timeoutlen=1000
 set ttimeoutlen=50
+set conceallevel=0
 
 colorscheme	gruvbox
 highlight Normal guibg=none
