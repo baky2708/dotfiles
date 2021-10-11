@@ -161,9 +161,14 @@ for_window [class="^.*"] border pixel 3
 # gaps outer 1
 
 ##key mappings
+set $swapkeys xmodmap ~/Projects/dotfiles/scripts/swapkeys
+set $swapKeyboard ~/Projects/dotfiles/scripts/swapKeyboard
+
 #Change keyboard Layout
-bindsym $mod+Mod1+b exec setxkbmap br && xmodmap ~/Projects/dotfiles/scripts/swapkeys
-bindsym $mod+Mod1+u exec setxkbmap us && xmodmap ~/Projects/dotfiles/scripts/swapkeys
+bindsym $mod+space exec $swapKeyboard && $swapkeys
+
+bindsym $mod+Mod1+b exec setxkbmap br && $swapkeys
+bindsym $mod+Mod1+u exec setxkbmap us && $swapkeys
 #Open help for us keyboard layout
 bindsym $mod+Mod1+h exec sxiv ~/Pictures/wallpapers/800px-KB_US-International.svg.png floating enable
 

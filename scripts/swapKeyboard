@@ -1,0 +1,12 @@
+#!/bin/sh
+US=us
+BR=br
+
+currentKeyboardLayout=$(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}'
+)
+
+if [[ $currentKeyboardLayout == $US ]]; then
+	setxkbmap $BR
+else
+	setxkbmap $US
+fi
