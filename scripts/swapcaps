@@ -1,5 +1,5 @@
 #!/bin/sh
-setxkbmap us
+# setxkbmap us
 xmodmap ~/Projects/dotfiles/scripts/swapkeys -display :0
 ##reset xmodmap keys
 #setxkbmap -option

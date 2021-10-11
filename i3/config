@@ -82,7 +82,7 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+semicolon split toggle
 
 # enter fullscreen mode for the focused container
-bindsym $mod+F11 fullscreen toggle
+bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+Shift+question layout toggle all
@@ -152,7 +152,8 @@ bindsym $mod+Control Down resize shrink height 5px or 5ppt
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        status_command i3blocks
+
 }
 
 #i3gaps##
@@ -161,14 +162,14 @@ for_window [class="^.*"] border pixel 3
 # gaps outer 1
 
 ##key mappings
-set $swapkeys xmodmap ~/Projects/dotfiles/scripts/swapkeys
+set $swapcaps ~/Projects/dotfiles/scripts/swapcaps
 set $swapKeyboard ~/Projects/dotfiles/scripts/swapKeyboard
 
 #Change keyboard Layout
-bindsym $mod+space exec $swapKeyboard && $swapkeys
+bindsym $mod+space exec $swapKeyboard && $swapcaps
 
-bindsym $mod+Mod1+b exec setxkbmap br && $swapkeys
-bindsym $mod+Mod1+u exec setxkbmap us && $swapkeys
+bindsym $mod+Mod1+b exec setxkbmap br && $swapcaps
+bindsym $mod+Mod1+u exec setxkbmap us && $swapcaps
 #Open help for us keyboard layout
 bindsym $mod+Mod1+h exec sxiv ~/Pictures/wallpapers/800px-KB_US-International.svg.png floating enable
 
