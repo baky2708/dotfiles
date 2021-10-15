@@ -14,7 +14,7 @@ set encoding=UTF-8
 set autoindent
 set smartindent
 set history=5000
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 set foldmethod=syntax
 set foldlevel=99
 "set cursorline
