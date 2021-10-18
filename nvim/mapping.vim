@@ -62,6 +62,10 @@ if has('nvim')
 	
 endif
 
+"npm test
+nnoremap <leader>tt :vsp<CR><C-w>l:terminal<CR>a !npm test<cr>
+
+
 "Vim-auto-save
 nnoremap <leader>as :AutoSaveToggle<CR>
 

@@ -166,6 +166,7 @@ set $swapcaps ~/Projects/dotfiles/scripts/swapcaps
 set $swapKeyboard ~/Projects/dotfiles/scripts/swapKeyboard
 
 #Change keyboard Layout
+bindsym $mod+Mod1+d exec sudo -E ~/Projects/teclado-br/unix/troca_teclado.py && $swapcaps
 bindsym $mod+space exec $swapKeyboard && $swapcaps
 
 bindsym $mod+Mod1+b exec setxkbmap br && $swapcaps

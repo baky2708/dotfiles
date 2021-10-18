@@ -1,0 +1,7 @@
+#!/bin/sh
+# exec alacritty &&
+CD=`cd ~/Projects/teclado-br/unix/`
+
+SWAP=`sudo -E ./troca_teclado.py`
+
+$CD

@@ -105,6 +105,7 @@ alias dotf="nvim ~/Projects/dotfiles"
 alias cdotf="cd ~/Projects/dotfiles"
 alias mpla="mplayer *"
 alias sx="startx"
+alias t="~/Projects/todo.txt-cli/todo.sh"
 
 #asdf
 . $HOME/.asdf/asdf.sh
