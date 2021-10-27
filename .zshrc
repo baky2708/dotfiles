@@ -107,6 +107,8 @@ alias mpla="mplayer *"
 alias sx="startx"
 alias t="~/Projects/todo.txt-cli/todo.sh"
 
+alias mvim="nvim -u ~/.config/mvim/init.lua"
+
 #asdf
 . $HOME/.asdf/asdf.sh
 export PATH=$HOME/.local/scripts:$PATH

@@ -158,21 +158,21 @@ bar {
 
 #i3gaps##
 for_window [class="^.*"] border pixel 3
-# gaps inner 1
-# gaps outer 1
 
 ##key mappings
 set $swapcaps ~/Projects/dotfiles/scripts/swapcaps
 set $swapKeyboard ~/Projects/dotfiles/scripts/swapKeyboard
 
 #Change keyboard Layout
-bindsym $mod+Mod1+d exec sudo -E ~/Projects/teclado-br/unix/troca_teclado.py && $swapcaps
-bindsym $mod+space exec $swapKeyboard && $swapcaps
+bindsym $mod+b exec setxkbmap -layout "br" && $swapcaps
+bindsym F9 exec setxkbmap -layout "us" -variant "intl" && $swapcaps
+bindsym F10 exec setxkbmap -layout "us" -variant "dvorak-intl" && $swapcaps
+bindsym F11 exec setxkbmap -layout "us" && $swapcaps
+bindsym F12 exec setxkbmap -layout "us" -variant "dvorak" && $swapcaps
 
-bindsym $mod+Mod1+b exec setxkbmap br && $swapcaps
-bindsym $mod+Mod1+u exec setxkbmap us && $swapcaps
-#Open help for us keyboard layout
-bindsym $mod+Mod1+h exec sxiv ~/Pictures/wallpapers/800px-KB_US-International.svg.png floating enable
+#Start workflow project-trybe
+set $openFirefox exec 'workspace 2; exec firefox'
+bindsym $mod+p exec $openFirefox
 
 #start
 # exec --no-startup-id picom --restore

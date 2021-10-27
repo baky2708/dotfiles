@@ -18,6 +18,7 @@ set clipboard+=unnamedplus
 set foldmethod=syntax
 set foldlevel=99
 "set cursorline
+set mouse=a
 set exrc
 set guicursor=
 set relativenumber

@@ -1,11 +1,12 @@
 #!/bin/sh
-USintl='us(intl)'
-US='us'
+US='us(dvorak-intl)'
+BR='br(dvorak-intl)'
+
 currentKeyboardLayout=$(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}'
 )
 
 if [[ $currentKeyboardLayout == $US ]]; then
-	setxkbmap $USintl
+	setxkbmap $BR
 else
 	setxkbmap $US
 fi

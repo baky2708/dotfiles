@@ -1,7 +1,6 @@
 #!/bin/sh
-# exec alacritty &&
-CD=`cd ~/Projects/teclado-br/unix/`
 
-SWAP=`sudo -E ./troca_teclado.py`
+DIRECTORY='/home/baky/Projects/teclado-br/unix'
 
-$CD
+cd $DIRECTORY
+echo 4 | sudo -E ./troca_teclado.py
