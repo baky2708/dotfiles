@@ -13,7 +13,7 @@ for list in *;
 		((i++))
 	done
 
-read -n1 selected
+read -n2 selected
 
 
 cd $(echo $projects/${array[$selected]})

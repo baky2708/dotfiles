@@ -164,21 +164,37 @@ set $swapcaps ~/Projects/dotfiles/scripts/swapcaps
 set $swapKeyboard ~/Projects/dotfiles/scripts/swapKeyboard
 
 #Change keyboard Layout
-bindsym $mod+b exec setxkbmap -layout "br" && $swapcaps
-bindsym F9 exec setxkbmap -layout "us" -variant "intl" && $swapcaps
+bindsym $mod+b exec setxkbmap "br" && $swapcaps
+# bindsym F9 exec setxkbmap -layout "us" -variant "intl" && $swapcaps
+bindsym F9 exec setxkbmap -layout "baky" -variant "real-dvp-intl" && $swapcaps
 bindsym F10 exec setxkbmap -layout "us" -variant "dvorak-intl" && $swapcaps
-bindsym F11 exec setxkbmap -layout "us" && $swapcaps
-bindsym F12 exec setxkbmap -layout "us" -variant "dvorak" && $swapcaps
+# bindsym F11 exec setxkbmap -layout "us" && $swapcaps
+bindsym F11 exec setxkbmap -layout "us" -variant "dvorak-l" && $swapcaps
+# bindsym F12 exec setxkbmap -layout "us" -variant "dvorak" && $swapcaps
+bindsym F12 exec setxkbmap -layout "us" -variant "intl" && $swapcaps
 
 #Start workflow project-trybe
 set $openFirefox exec 'workspace 2; exec firefox'
 bindsym $mod+p exec $openFirefox
+
+#light screen
+# keys = XF86MonBrightnessUp 
+# keys = XF86MonBrightnessDown  
+bindsym F5 exec --no-startup-id bash -c 'b=$(xrandr --verbose | grep -i brightness | head -n 1 | cut -d" " -f2) && b2=$(echo -e "import math\nf = lambda x: (1 - 1/(1+math.exp(4*x-2)))\nprint(\\\"%.2f\\\" % f(0.1+$b))" | python) && xrandr --output eDP --brightness $b2'
+
+bindsym F6 exec --no-startup-id bash -c 'b=$(xrandr --verbose | grep -i brightness | head -n 1 | cut -d" " -f2) && b2=$(echo -e "import math\nf = lambda x: (1 - 1/(1+math.exp(4*x-2)))\nprint(\\\"%.2f\\\" % f(-0.1+$b))" | python) && xrandr --output eDP --brightness $b2'
+
+#typewriter sound
 
 #start
 # exec --no-startup-id picom --restore
 exec --no-startup-id nitrogen --restore
 bindsym $mod+Shift+Return exec firefox
 exec --no-startup-id picom -b 
-exec_always ~/.local/scripts/swapcaps
+exec_always ~/.local/scripts/swapcap
 bindsym $mod+s exec slack
 bindsym $mod+r exec alacritty -e "ranger"
+bindsym $mod+Shift+d exec  alacritty -e nvim ~/Projects/dotfiles
+bindsym Print exec "scrot -m '/home/user/Pictures/screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png'"
+bindsym Shift+Print exec "scrot -s '/home/user/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"
+bindsym $mod+Shift+Print exec "scrot -u -d 4 '/home/user/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"

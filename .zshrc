@@ -3,6 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/baky/.oh-my-zsh"
+export EDITOR='nvim'
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -96,6 +97,7 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
+
 # Example aliases
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzshconfig="nvim ~/.oh-my-zsh"
@@ -108,7 +110,14 @@ alias sx="startx"
 alias t="~/Projects/todo.txt-cli/todo.sh"
 
 alias mvim="nvim -u ~/.config/mvim/init.lua"
+alias typew="cd ~/Downloads/chrelad-keypress-03fd18a/"
+alias tx="tmuxinator"
+alias txc="nvim ~/.config/tmuxinator/"
+alias bim="vim -u ~/02-me/typewriter/vim-base/vimrc"
+alias otx="lua ~/draft/lua/b.lua"
 
 #asdf
 . $HOME/.asdf/asdf.sh
 export PATH=$HOME/.local/scripts:$PATH
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

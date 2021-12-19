@@ -1,6 +1,8 @@
 #!/bin/sh
 clear
 echo --------------------
+echo WELCOME TO EXERCISES
+echo --------------------
 echo 'selected: ('${array[$selected]}')'
 
 declare -A array
