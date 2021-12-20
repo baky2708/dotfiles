@@ -52,6 +52,6 @@ return require('packer').startup(function(use)
 	use 'logico/typewriter-vim'
 	use 'skywind3000/vim-keysound'
 	use 'cknadler/vim-anywhere'
-	use 'iamcco/markdown-preview.nvim'
+	use {"ellisonleao/glow.nvim"}
 end)
 

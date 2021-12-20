@@ -130,3 +130,6 @@ utils.map('n', '<leader><leader>c', ':call ChangeGruvbox()<CR> ')
 
 -- Easy Esc
 utils.map('n', '<C-c>', '<Esc>')
+
+-- Markdown
+utils.map('n', '<leader><leader>m', ':Glow<CR>')

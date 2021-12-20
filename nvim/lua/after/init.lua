@@ -79,7 +79,5 @@ vim.cmd [[
 -- Buffer Linvim.opt.termguicolors = true
 require("bufferline").setup{}
 
---Typewriter Sound
--- vim.cmd [[
---   let g:keysound_enable = 1
--- ]]
+-- Markdown preview
+vim.cmd [[let vim_markdown_preview_github=1]]
