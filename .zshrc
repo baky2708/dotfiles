@@ -119,5 +119,5 @@ alias otx="lua ~/draft/lua/b.lua"
 #asdf
 . $HOME/.asdf/asdf.sh
 export PATH=$HOME/.local/scripts:$PATH
-
+export PATH=$HOME/tools/nvim-linux64/bin:$PATH
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
