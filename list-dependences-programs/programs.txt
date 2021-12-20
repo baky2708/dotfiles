@@ -1,0 +1,23 @@
+#i3
+i3
+i3-status
+dmenu
+
+#editor
+nvim
+
+#browser
+firefox
+
+#terminal
+alacritty
+zsh
+
+#file manager
+ranger
+
+#git
+git
+
+#manager language
+asdf
