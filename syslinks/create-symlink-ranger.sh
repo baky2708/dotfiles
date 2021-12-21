@@ -1,7 +1,6 @@
 #!/bin/sh
 
 #Variables
-ranger_config='rc.conf'
 path_dotfile=$HOME/Projects/dotfiles/'ranger'
 path_ranger_config=$HOME/.config/'ranger'
 
@@ -11,5 +10,4 @@ if [ -e "$path_ranger_config" ]; then
 fi
 
 #Create symlink of tmux.conf
-mkdir $HOME/.config/ranger
-ln -sv $path_dotfile/$ranger_config $path_ranger_config/$ranger_config
+ln -sv $path_dotfile $path_ranger_config
