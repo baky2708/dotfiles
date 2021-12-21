@@ -1,5 +1,17 @@
 # My Dotfiles for development
 
+## I3
+
+The folder 'i3' is my i3 config
+
+- **config** -- The main i3 config
+
+- **i3blocks.conf** -- The bottom bar config
+
+- **i3blocks-scripts** -- The scripts to use in bottom bar
+
+- **i3status** -- The alternative status bar config
+
 ## List of Programs and Dependences
 
 The folder 'list-dependences-programs' is a list with a script.
@@ -35,6 +47,10 @@ The folder 'ranger' is the configs about ranger, my file manager
 - **create-symlink-ranger-sh** -- Script to create symlink
 
 - **rc.conf** -- Ranger configs
+
+## Syslink
+
+The folder 'syslinks' are the scripts to create symbolic link of all dotfiles
 
 ## Tmux
 
