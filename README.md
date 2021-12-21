@@ -24,3 +24,16 @@ The 'base-dependences.txt' is a list of dependences necessary for the correct fu
 
 - 
 
+## X Config
+
+The folder 'xconfig' is the config of my xorg xith script for create syslinks.
+
+- **baky** -- My adaptation of Dvorak Programming keyboard layout and settings
+
+- **create-symlink-xconfig.sh** -- My script to create symlinks
+
+- **swapcaps** -- Script to change CapsLock to Control L
+
+- **swapkeys** -- Xorg configs to change CapsLock to Contral L
+
+- **xorg.conf.d** -- Touchpad configs to enable tapclick and inverted scroll
