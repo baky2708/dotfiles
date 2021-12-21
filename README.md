@@ -24,6 +24,22 @@ The 'base-dependences.txt' is a list of dependences necessary for the correct fu
 
 - 
 
+## Others
+
+These are the files I don't know what to do...
+
+## Tmux
+
+The folder 'tmux' is the config of my tmux
+
+- **create-symlink-tmux.sh** -- Script to create symlink
+
+- **tmux.conf** -- Configs of Tmux
+
+## Wallpapers
+
+The folder 'wallpapers' is the all images I use in my computer as wallpapers
+
 ## X Config
 
 The folder 'xconfig' is the config of my xorg xith script for create syslinks.
@@ -37,11 +53,3 @@ The folder 'xconfig' is the config of my xorg xith script for create syslinks.
 - **swapkeys** -- Xorg configs to change CapsLock to Contral L
 
 - **xorg.conf.d** -- Touchpad configs to enable tapclick and inverted scroll
-
-## Wallpapers
-
-The folder 'wallpapers' is the all images I use in my computer as wallpapers
-
-## Others
-
-These are the files I don't know what to do...
