@@ -1,5 +1,11 @@
 # My Dotfiles for development
 
+## Alacritty
+
+The folder 'alacritty' is my alacritty config
+
+- **alacritty.yml** -- The main alacritty config
+
 ## I3
 
 The folder 'i3' is my i3 config
