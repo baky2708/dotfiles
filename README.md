@@ -28,6 +28,14 @@ The 'base-dependences.txt' is a list of dependences necessary for the correct fu
 
 These are the files I don't know what to do...
 
+## Ranger
+
+The folder 'ranger' is the configs about ranger, my file manager
+
+- **create-symlink-ranger-sh** -- Script to create symlink
+
+- **rc.conf** -- Ranger configs
+
 ## Tmux
 
 The folder 'tmux' is the config of my tmux
