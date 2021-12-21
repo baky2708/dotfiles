@@ -160,8 +160,8 @@ bar {
 for_window [class="^.*"] border pixel 3
 
 ##key mappings
-set $swapcaps ~/Projects/dotfiles/scripts/swapcaps
-set $swapKeyboard ~/Projects/dotfiles/scripts/swapKeyboard
+set $swapcaps ~/Projects/dotfiles/xconfig/swapcaps
+# set $swapKeyboard ~/Projects/dotfiles/scripts/swapKeyboard
 
 #Change keyboard Layout
 bindsym $mod+b exec setxkbmap "br" && $swapcaps
