@@ -1,6 +1,0 @@
-#!/bin/sh
-
-DIRECTORY='/home/baky/Projects/teclado-br/unix'
-
-cd $DIRECTORY
-echo 4 | sudo -E ./troca_teclado.py
