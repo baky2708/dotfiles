@@ -50,6 +50,12 @@ The folder 'nvim' is my config of my editor, neovim
 
 These are the files I don't know what to do...
 
+## Picom
+
+The folder 'picom' is my picom config
+
+- **picom.conf** -- The main picom config
+
 ## Ranger
 
 The folder 'ranger' is the configs about ranger, my file manager
