@@ -109,3 +109,11 @@ The folder 'xconfig' is the config of my xorg xith script for create syslinks.
 The folder 'zsh' is my zsh config
 
 - **zshrc** -- Configs of zsh
+
+## To Do
+
+- script to create all syslinks
+
+- installation of nvim
+
+- add list of dependences
