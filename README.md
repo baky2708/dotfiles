@@ -83,3 +83,9 @@ The folder 'xconfig' is the config of my xorg xith script for create syslinks.
 - **swapkeys** -- Xorg configs to change CapsLock to Contral L
 
 - **xorg.conf.d** -- Touchpad configs to enable tapclick and inverted scroll
+
+## Zsh
+
+The folder 'zsh' is my zsh config
+
+- **zshrc** -- Configs of zsh
