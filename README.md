@@ -58,6 +58,16 @@ The folder 'ranger' is the configs about ranger, my file manager
 
 - **rc.conf** -- Ranger configs
 
+## Scripts
+
+The folder 'scripts' is the scripts I use in my day
+
+- **te** -- Script to manipulate my trybe exercises
+
+- **tp** -- Script to access my trybe prejects
+
+- ytdmusic -- Script to download youtube songs
+
 ## Syslink
 
 The folder 'syslinks' are the scripts to create symbolic link of all dotfiles
