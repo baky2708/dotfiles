@@ -42,6 +42,10 @@ The 'base-dependences.txt' is a list of dependences necessary for the correct fu
 
 - 
 
+## Nvim
+
+The folder 'nvim' is my config of my editor, neovim
+
 ## Others
 
 These are the files I don't know what to do...
