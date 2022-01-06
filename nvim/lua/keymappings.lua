@@ -34,7 +34,7 @@ vim.cmd [[
             :!lua %
         endif
         if(extension == 'js')
-            echo extension
+            :!node %
         endif
     endfunction
 

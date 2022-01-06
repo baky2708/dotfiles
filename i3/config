@@ -1,6 +1,13 @@
 #---------- BASIC SYSTEM
+
+# assign [class="chrome"] 2
+assign [class="zoom"] 5
+assign [class="Slack"] 3
+
 #Remove the title bar
-for_window [class="^.*"] border pixel 3
+# for_window [class="^.*"] border pixel 3
+default_border pixel 1
+default_floating_border pixel 1
 #Set main key
 set $mod Mod4
 
@@ -141,7 +148,8 @@ bindsym $mod+r exec alacritty -e "ranger"
 # start a typewriter
 bindsym $mod+Shift+d exec  alacritty -e nvim ~/Projects/dotfiles
 # start firefox
-bindsym $mod+Shift+Return exec firefox
+# bindsym $mod+Shift+Return exec firefox
+bindsym $mod+Shift+Return exec google-chrome-stable
 
 
 #---------- END OPEN
@@ -215,7 +223,7 @@ set $swapcaps ~/Projects/dotfiles/xconfig/swapcaps
 # set $swapKeyboard ~/Projects/dotfiles/scripts/swapKeyboard
 
 #Change Layout BR
-bindsym $mod+br exec setxkbmap "br" && $swapcaps
+# bindsym $mod+br exec setxkbmap "br" && $swapcaps
 
 #Change Layout baky
 bindsym F9 exec setxkbmap -layout "baky" -variant "real-dvp-intl" && $swapcaps
@@ -231,3 +239,65 @@ bindsym F12 exec setxkbmap -layout "us" -variant "intl" && $swapcaps
 
 #---------- END KEYBOARD
 
+
+#---------- MODES
+# move floating windows with keys
+
+bindsym $mod+m mode "move" focus floating
+mode "move" {
+    bindsym $mod+Tab focus right
+
+    set $minSize resize shrink width 1000; resize shrink height 1000;
+    set $leftPosition move position 0 0;
+    set $rightPosition move position 683 0;
+    set $maxHeightSize resize grow width 600; resize grow height 693;
+
+    bindsym Left  move left 100px
+
+    bindsym Down  move down 100px
+    bindsym Up    move up 100px
+    bindsym Right move right 100px
+
+    bindsym h     move left
+    bindsym j     move down
+    bindsym k     move up
+    bindsym l     move right
+
+    bindsym Shift+h $minSize; $leftPosition; $maxHeightSize
+    bindsym Shift+l $minSize; $rightPosition; $maxHeightSize
+    bindsym Shift+j $minSize; $rightPosition; $maxHeightSize
+    bindsym Shift+k $minSize; $rightPosition; $maxHeightSize
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+
+bindsym $mod+o mode "$mode_Laucher"
+
+set $mode_Laucher Laucher: [b]rowsers [a]pps
+
+mode "$mode_browser" {
+    bindsym f exec firefox
+    bindsym c exec google-chrome-stable
+
+    bindsym e mode "default"
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
+mode "$mode_Laucher" {
+
+    bindsym b mode "$mode_browser"
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+    }
+
+set $mode_browser Browser: [f]irefox [c]hrome c[h]romiun [e]xit
+
+# bindsym $mod+Control Left resize shrink width 5px or 5ppt
+# bindsym $mod+Control Up resize grow height 5px or 5ppt
+# bindsym $mod+Control Down resize shrink height 5px or 5ppt
+
+#---------- END MODES

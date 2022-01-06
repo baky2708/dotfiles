@@ -114,10 +114,13 @@ alias typew="cd ~/Downloads/chrelad-keypress-03fd18a/"
 alias tx="tmuxinator"
 alias txc="nvim ~/.config/tmuxinator/"
 alias bim="vim -u ~/02-me/typewriter/vim-base/vimrc"
-alias otx="lua ~/draft/lua/b.lua"
+alias otx="lua ~/02-me/lua/auto-tmuxinator/tx.lua"
+alias me="cd ~/02-me/"
+alias trybe="cd ~/01-trybe"
 
 #asdf
 . $HOME/.asdf/asdf.sh
 export PATH=$HOME/.local/scripts:$PATH
+#nvim 7.0
 export PATH=$HOME/tools/nvim-linux64/bin:$PATH
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
