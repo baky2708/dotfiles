@@ -4,6 +4,11 @@
 assign [class="zoom"] 5
 assign [class="Slack"] 3
 
+# mark current window
+bindsym $mod+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
+# go to mark
+bindsym $mod+apostrophe exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
+
 #Remove the title bar
 # for_window [class="^.*"] border pixel 3
 default_border pixel 1
@@ -243,7 +248,7 @@ bindsym F12 exec setxkbmap -layout "us" -variant "intl" && $swapcaps
 #---------- MODES
 # move floating windows with keys
 
-bindsym $mod+m mode "move" focus floating
+# bindsym $mod+m mode "move" focus floating
 mode "move" {
     bindsym $mod+Tab focus right
 
