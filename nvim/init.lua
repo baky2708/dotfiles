@@ -9,3 +9,4 @@ require('after')
 vim.cmd[[
 	source ~/.config/nvim/coc.vim
 ]]
+-- require'lspconfig'.tsserver.setup{}

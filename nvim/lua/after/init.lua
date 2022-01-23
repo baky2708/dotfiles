@@ -71,7 +71,7 @@ require('lualine').setup{
 vim.cmd [[
 	let g:ale_linters = {'javascript': ['eslint']}
 	let g:ale_completion_enabled=0
-	set updatetime=300
+	set updatetime=0
 ]]
 
 -- Coc
@@ -81,3 +81,5 @@ require("bufferline").setup{}
 
 -- Markdown preview
 vim.cmd [[let vim_markdown_preview_github=1]]
+
+-- Lps

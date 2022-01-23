@@ -1,0 +1,254 @@
+#!/usr/bin/env lua
+local lfs = require 'lfs'
+local home = os.getenv('HOME')
+local tmuxinator_dir = (home .. '/.config/tmuxinator/')
+local it_ls, ls = lfs.dir(home .. '/.config')
+local start = true
+local state = 1
+
+function Start()
+	while start do
+		if state == 1 then ScreenStart() end
+		if state == 2 then OpenProject() end
+		if state == 3 then CreateProjectScreen() end
+		if state == 4 then GetDataForProjectScreen() end
+		if state == 5 then OpenConfigProject() end
+	end
+	os.execute('clear')
+end
+
+function AddWindows(arr)
+	table.insert(arr, 'hei')
+end
+
+function GetDataForProjectScreen(arr)
+		print('Write name of new windows:')
+		table.insert(arr, io.read())
+end
+
+function CreateProjectScreen()
+	local state_create = true
+	local name_Project = ''
+	local windows = {}
+
+	while state_create do
+		os.execute('clear')
+		state = 0
+		print('----------')
+		print('Create Project')
+		print('Project Name:'..name_Project)
+		print('Windows:')
+		for key, value in ipairs(windows) do
+			print(key, value)
+		end
+
+		local list = CreateList()
+		print('Yours Projects')
+
+		PrintProjects(list)
+
+		print('\n')
+		print('press n to push name of project')
+		print('press a to add new windows')
+		print('press F to finish')
+		print('press b to back to initial screen')
+		print('press q to back to initial screen')
+
+		print('\n')
+
+		print('Select a Opition')
+		local key = io.read()
+		print('\n')
+		if key == 'b' then
+			state = 1
+			state_create = false
+		end
+		if key == 'q' then
+			state = 2
+			start = false
+			state_create = false
+		end
+		if key == 'n' then
+			print('Write name of project:')
+			name_Project = io.read()
+		end
+		if key == 'a' then
+		GetDataForProjectScreen(windows)
+		end
+		if key == 'F' then
+			state = 1
+			state_create = false
+		end
+	end
+end
+
+function ScreenStart()
+	os.execute('clear')
+	state = 0
+	print('----------')
+	print('Welcome')
+	print('press o to open project')
+	print('press c to create new project')
+	print('press r to create default react project')
+	print('press ? to open tmuxinator config')
+	print('press D to delete project')
+	print('press q to exit')
+	local key = io.read()
+	if key == 'o' then state = 2 end
+	if key == '?' then state = 5 end
+	if key == 'c' then state = 3 end
+	if key == 'D' then
+		start = false
+		DeleteProject()
+	end
+	if key == 'r' then
+		start = false
+		CreateDefaultReactProject()
+	end
+	if key == 'q' then start = false end
+end
+
+function DeleteProject()
+	os.execute('clear')
+	print('----------')
+	print('Delete Project ')
+	print('Choose a project to delete:')
+	local list = CreateList()
+	io.write('Press the number of project if you want\n\n')
+	PrintProjects(list)
+	print('\n')
+	state = 0
+	print('press b to back to initial screen')
+	print('press q to back to initial screen')
+	local key = io.read()
+	local file_selected = list[tonumber(key)]
+	if key == 'b' then state = 1 end
+	if key == 'q' then
+		state = 2
+		start = false
+	end
+	if file_selected then
+		os.execute('rm ~/.config/tmuxinator/'..file_selected)
+		state = 1
+		start = false
+	else
+		state = 1
+	end
+end
+
+function CreateDefaultReactProject()
+	os.execute('clear')
+
+	io.write('Write name of project:')
+	local name_Project = io.read()
+	io.write('Write the path root:')
+	local root = io.read()
+	if root == '.' then root = lfs.currentdir() end
+
+	local path_tmuxnator = (home..'/.config/tmuxinator/')
+	local file = io.open(path_tmuxnator..name_Project..'.yml','w')
+	-- file:write('name: '..name_Project..'\n')
+	-- file:write('root: '..root)
+	file:write(
+'name: '..name_Project..'\n',
+'root: '..root..'\n',
+'windows: \n',
+'  - editor: \n',
+'      layout: even-horizontal \n',
+'      panes: \n',
+'        - nvim -c \':q\' ; nvim src/App.js \n',
+'        -  \n',
+'  - server: npm start \n'
+	)
+	file:close()
+	io.write('Create new project! (press Enter)'); io.read()
+end
+
+function OpenProject()
+	os.execute('clear')
+	print('----------')
+	print('Open Project ')
+	print('Choose a project to open:')
+	local list = CreateList()
+	io.write('Press the number of project if you want\n\n')
+	PrintProjects(list)
+	print('\n')
+	state = 0
+	print('press b to back to initial screen')
+	print('press q to back to initial screen')
+	local key = io.read()
+	local file_selected = list[tonumber(key)]
+	if key == 'b' then state = 1 end
+	if key == 'q' then
+		state = 2
+		start = false
+	end
+	if file_selected then
+		os.execute('tmuxinator '..file_selected:match("(.+)%..+$"))
+		state = 1
+		start = false
+	else
+		state = 1
+	end
+end
+
+function OpenConfigProject()
+	os.execute('clear')
+	print('----------')
+	print('Open Config Project ')
+	print('Choose a project to open:')
+	local list = CreateList()
+	io.write('Press the number of project if you want\n\n')
+	PrintProjects(list)
+	print('\n')
+	state = 0
+	print('press b to back to initial screen')
+	print('press q to back to initial screen')
+	local key = io.read()
+	local file_selected = list[tonumber(key)]
+	if key == 'b' then state = 1 end
+	if key == 'q' then
+		state = 2
+		start = false
+	end
+	if file_selected then
+		state = 1
+		start = false
+		os.execute('nvim '.. tmuxinator_dir..file_selected)
+	else
+		state = 1
+	end
+end
+
+function CreateList()
+	print('----------')
+	local list = {}
+	local it_tmuxinator, tmuxinator = lfs.dir(tmuxinator_dir)
+	while true do
+		local curr_file = tmuxinator:next()
+		if not curr_file then break end
+		local ext_start = string.find(curr_file, '%.')
+		if ext_start > 1 then
+			table.insert(list, curr_file)
+		end
+	end
+	return list
+end
+
+function Check()
+	while true do
+		local i = ls:next()
+		if not i then os.exit() end
+		if i == 'tmuxinator' then
+			return true
+		end
+	end
+end
+
+function PrintProjects(arr)
+	for key, value in ipairs(arr) do
+		print(key, value)
+	end
+end
+
+Start()
