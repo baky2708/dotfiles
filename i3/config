@@ -84,9 +84,7 @@ bindsym F5 exec --no-startup-id bash -c 'b=$(xrandr --verbose | grep -i brightne
 #light screen down
 bindsym F6 exec --no-startup-id bash -c 'b=$(xrandr --verbose | grep -i brightness | head -n 1 | cut -d" " -f2) && b2=$(echo -e "import math\nf = lambda x: (1 - 1/(1+math.exp(4*x-2)))\nprint(\\\"%.2f\\\" % f(-0.1+$b))" | python) && xrandr --output eDP --brightness $b2'
 
-bindsym Print exec "scrot -m '/home/user/Pictures/screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png'"
-bindsym Shift+Print exec "scrot -s '/home/user/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"
-bindsym $mod+Shift+Print exec "scrot -u -d 4 '/home/user/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"
+bindsym Print exec "scrot ~/Pictures/Screenshots/%b%d:%H:%M:%S.png"
 
 #---------- END BASIC SYSTEM
 
