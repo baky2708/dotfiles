@@ -43,8 +43,8 @@ return require('packer').startup(function(use)
 	-- use 'neovim/nvim-lspconfig'
 	use {
     -- 'neovim/nvim-lspconfig',
-		--
-    -- 'williamboman/nvim-lsp-installer',
+
+    'williamboman/nvim-lsp-installer',
 	}
 	use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
 	use 'rafcamlet/coc-nvim-lua'
@@ -53,8 +53,8 @@ return require('packer').startup(function(use)
 		'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'
 	}
 
-	use 'baky2708/nvimplugin'
-	use 'rafcamlet/nvim-whid'
+	-- use 'baky2708/nvimplugin'
+	-- use 'rafcamlet/nvim-whid'
 	-- Typewriter colorscheme
 	-- use 'logico/typewriter-vim'
 	-- use 'skywind3000/vim-keysound'
