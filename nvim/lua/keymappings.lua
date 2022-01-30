@@ -1,92 +1,135 @@
 local utils = require('utils')
 
-local cmd = vim.cmd
+-- Leader key
+vim.g.mapleader = ' '
+-- Moviment Split
+utils.map('n', '<leader>l', '<C-w>l')
+utils.map('n', '<leader>h', '<C-w>h')
+utils.map('n', '<leader>j', '<C-w>j')
+utils.map('n', '<leader>k', '<C-w>k')
 
--- Hability syntax
-cmd 'syntax enable'
+-- Move in Insert Mode
+utils.map('i', '<M-k>', '<C-o>gk')
+utils.map('i', '<M-j>', '<C-o>gj')
+utils.map('i', '<M-h>', '<left>')
+utils.map('i', '<M-l>', '<right>')
 
--- Numbers
-utils.opt('o', 'number', true)
-utils.opt('o', 'relativenumber', true)
+-- Move all line
+utils.map('v', 'J', ':m \'>+1<CR>gv=gv')
+utils.map('v', 'K', ':m \'<-2<CR>gv=gv')
 
--- Indent
-utils.opt('b', 'autoindent', true)
-utils.opt('b', 'smartindent', true)
+-- Copy in clip
+utils.map('n', '<leader>y', '\"+y')
+utils.map('v', '<leader>y', '\"+y')
+utils.map('v', '<leader>Y', 'gg\"+yG')
 
--- history
-utils.opt('o', 'history', 5000)
+-- Terminal
+utils.map('t', '<C-\\>', '<C-\\><C-n>')
+utils.map('t', '<leader>q', 'exit<CR>')
+vim.cmd [[
+    function! Execute()
+        let extension = expand('%:e')
+        let fullFileName = expand('%:t')
+        if(extension == 'lua')
+            :!lua %
+        endif
+        if(extension == 'js')
+            :!node %
+        endif
+    endfunction
 
--- UTF
-utils.opt('o', 'encoding', 'UTF-8')
+]]
 
--- Copy out nvim
-utils.opt('o', 'clipboard', 'unnamedplus')
+-- utils.map('n', '<leader>tn', ':!node %<CR>')
+utils.map('n', '<leader>tn', ':call Execute()<CR>')
+utils.map('n', '<leader>tl', ':vsp<CR><C-w>l:terminal<CR>a')
+utils.map('n', '<leader>th', ':vsp<CR> :terminal<CR>a')
+utils.map('n', '<leader>tk', ':sp<CR> :terminal<CR>a')
+utils.map('n', '<leader>tk', ':sp<CR><C-w>j :terminal<CR>a')
+utils.map('n', '<leader>tt', ':vsp<CR><C-w>l:terminal<CR>a !npm test<cr>')
+-- utils.map('t', '<C-\\', '<C-\\><C-n>')
 
--- Fold
-utils.opt('w', 'foldmethod', 'syntax')
-utils.opt('w', 'foldlevel', 99)
+-- Telescope
+vim.cmd [[
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+]]
 
--- Mouse on
-utils.opt('o', 'mouse', 'a')
+-- Nvim Tree
+utils.map('n', '<leader>nn', ':NvimTreeToggle<CR>')
 
--- Cursor
-utils.opt('o', 'guicursor', 'n-c:block,i-ci-v-ve:ver25,r-cr:hor20,o:hor50')
+-- Buffers Navegation
+utils.map('n', '<M-l>', ':bn<CR>')
+utils.map('n', '<M-h>', ':bp<CR>')
+utils.map('n', '<c-x>', ':bd<CR>')
 
--- Search
-utils.opt('o', 'hlsearch', false)
-utils.opt('o', 'incsearch', true)
+-- Git
+utils.map('n', '<leader>gs', ':G<CR>')
+utils.map('n', '<leader>gf', ':diffget //2<CR>')
+utils.map('n', '<leader>gj', ':diffget //3<CR>')
 
--- No Errors Bells
-utils.opt('o', 'errorbells', false)
+-- Auto Save
+utils.map('n', '<leader>as', ':ASToggle<CR>')
 
--- Tab
-utils.opt('o', 'tabstop', 2)
-utils.opt('o', 'softtabstop', 2)
-utils.opt('o', 'shiftwidth', 2)
+-- Live Server
+utils.map('n', '<leader>ls', ':terminal {npx live-server .}<CR>')
 
--- Substitute
-utils.opt('o', 'si', true)
+-- Coc
 
--- Wrap
-utils.opt('o', 'wrap', true)
+-- Set Relative Number
+vim.cmd[[
+" Relative or absolute number lines
+function! NumberToggle()
+    if(&rnu == 1)
+        "set nu
+        set rnu!
+    else
+        set rnu
+        set nu
+    endif
+endfunction
 
---Swap
-utils.opt('o', 'swapfile', false)
+]]
 
--- Backup
-utils.opt('o', 'backup', false)
+utils.map('n', '<leader><leader>r', ':call NumberToggle()<CR>')
 
--- Undo
-utils.opt('o', 'undodir', '/home/baky/.vim/undodir')
-utils.opt('o', 'undofile', true)
+-- Set TypeWriter Sound
+-- vim.cmd[[
+-- function! TypeWriter()
+  -- silent! exec '!mplayer ~/.config/nvim/typewriter-key-1.mp3'
+-- endfunction
+-- autocmd CursorMovedI * call TypeWriter()
+-- ]]
+-- auuo
+-- utils.map('n', '<leader><leader>t', ':call TypeWriter()<CR>')
 
--- Colors
-utils.opt('o', 'termguicolors', true)
-cmd 'colorscheme gruvbox'
--- cmd 'colorscheme typewriter-night'
-cmd 'highlight Normal guibg=none'
+-- Write ';' and ',' in end line
+utils.map('n', '<leader>;', 'mz A;<Esc>`z<Left> ')
+utils.map('n', '<leader>,', 'mz A,<Esc>`z<Left> ')
 
--- Scroll
-utils.opt('o', 'scrolloff', 8)
+-- Change ColorScheme
+vim.cmd[[
+" Change color scheme
+function! ChangeGruvbox()
+    let actualColorScheme = g:colors_name
+    if(actualColorScheme == 'gruvbox')
+        colo typewriter
+    else
+        colo gruvbox
+        highlight Normal guibg=none
+    endif
+endfunction
 
--- Show Mode
-utils.opt('o', 'showmode', true)
+]]
 
--- Complete
-utils.opt('o', 'completeopt', 'menuone,noinsert,noselect')
+utils.map('n', '<leader><leader>c', ':call ChangeGruvbox()<CR> ')
+-- utils.map('n', '<leader><leader>cg', '!colo gruvbox')
+-- utils.map('n', '<leader><leader>ct', '!colo typewriter-dark')
 
--- Color Column
-utils.opt('o', 'colorcolumn', '80')
+-- Easy Esc
+utils.map('n', '<C-c>', '<Esc>')
 
--- Sign Column
-utils.opt('o', 'signcolumn', 'yes')
-
--- Time Out
---utils.opt('o', 'timeoutlen', 500)
-
--- Conceal
-utils.opt('o', 'conceallevel', 0)
-
---Others
---utils.opt('o', 'hidden', true)
---utils.opt('o', 'exrc', true)
+-- Markdown
+utils.map('n', '<leader><leader>m', ':Glow<CR>')

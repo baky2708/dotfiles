@@ -89,16 +89,6 @@ _G.packer_plugins = {
     path = "/home/baky/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
-  ["coc-nvim-lua"] = {
-    loaded = true,
-    path = "/home/baky/.local/share/nvim/site/pack/packer/start/coc-nvim-lua",
-    url = "https://github.com/rafcamlet/coc-nvim-lua"
-  },
-  ["coc.nvim"] = {
-    loaded = true,
-    path = "/home/baky/.local/share/nvim/site/pack/packer/start/coc.nvim",
-    url = "https://github.com/neoclide/coc.nvim"
-  },
   gruvbox = {
     loaded = true,
     path = "/home/baky/.local/share/nvim/site/pack/packer/start/gruvbox",
@@ -123,6 +113,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/baky/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
     url = "https://github.com/williamboman/nvim-lsp-installer"
+  },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "/home/baky/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-tree.lua"] = {
     config = { "\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14nvim-tree\frequire\0" },
