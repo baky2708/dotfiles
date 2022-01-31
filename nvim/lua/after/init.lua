@@ -68,11 +68,11 @@ require('lualine').setup{
 }
 
 -- Nvim Ale
-vim.cmd [[
-	let g:ale_linters = {'javascript': ['eslint']}
-	let g:ale_completion_enabled=0
-	set updatetime=0
-]]
+-- vim.cmd [[
+-- 	let g:ale_linters = {'javascript': ['eslint']}
+-- 	let g:ale_completion_enabled=0
+-- 	set updatetime=0
+-- ]]
 
 -- Coc
 

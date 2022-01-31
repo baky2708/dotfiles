@@ -1,15 +1,19 @@
 return require('packer').startup(function(use)
 	-- Packer
 	use 'wbthomason/packer.nvim'
+
 	-- Color Scheme
 	use 'gruvbox-community/gruvbox'
+
 	-- Telescope
 	use {
 		'nvim-telescope/telescope.nvim',
 			requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
 }
+
 	-- Nvim TreeSitter
 	use 'nvim-treesitter/nvim-treesitter'
+
 	-- Nvim Tree
 	use {
 	'kyazdani42/nvim-tree.lua',
@@ -18,34 +22,44 @@ return require('packer').startup(function(use)
 }
 	-- Comment
 	use 'numToStr/Comment.nvim'
+
 	-- Auto Pairs
 	use 'windwp/nvim-autopairs'
+
 	-- Indent
 	--use 'glepnir/indent-guides.nvim'
 	use 'lukas-reineke/indent-blankline.nvim'
+
 	-- Status Line
 	use {
   'nvim-lualine/lualine.nvim',
   requires = {'kyazdani42/nvim-web-devicons', opt = true}
 }
 	-- Linter
-	use 'dense-analysis/ale'
+	-- use 'dense-analysis/ale'
 	-- use 'mfussenegger/nvim-lint'
+	-- use 'mattn/efm-langserver'
+	
+	--Navegator
+	-- use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
+
 	-- Game
 	use 'theprimeagen/vim-be-good'
+
 	-- Git
 	use 'tpope/vim-rhubarb'
 	use 'tpope/vim-fugitive'
 	use 'Pocco81/AutoSave.nvim'
 	use 'tpope/vim-surround'
 	use 'wellle/targets.vim'
-	-- use {'neovim/nvim-lspconfig', cond = "vim.fn.has('nvim-0.5') == 1"}
-	-- use 'neovim/nvim-lspconfig'
-	use {
-    -- 'neovim/nvim-lspconfig',
 
+	-- Lsp
+	use {
+    'neovim/nvim-lspconfig',
     'williamboman/nvim-lsp-installer',
 	}
+
+	-- Coc
 	use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
 	use 'rafcamlet/coc-nvim-lua'
 	use 'sheerun/vim-polyglot'
