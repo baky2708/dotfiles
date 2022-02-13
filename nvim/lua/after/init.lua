@@ -83,3 +83,8 @@ require("bufferline").setup{}
 vim.cmd [[let vim_markdown_preview_github=1]]
 
 -- Lps
+
+-- Test
+vim.cmd [[
+  let test#javascript#reactscripts#options = "--watchAll=false"
+]]

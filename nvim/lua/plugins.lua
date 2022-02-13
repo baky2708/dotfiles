@@ -39,7 +39,6 @@ return require('packer').startup(function(use)
 	-- use 'dense-analysis/ale'
 	-- use 'mfussenegger/nvim-lint'
 	-- use 'mattn/efm-langserver'
-	
 	--Navegator
 	-- use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
 
@@ -49,7 +48,11 @@ return require('packer').startup(function(use)
 	-- Git
 	use 'tpope/vim-rhubarb'
 	use 'tpope/vim-fugitive'
+
+	-- Auto Save
 	use 'Pocco81/AutoSave.nvim'
+
+	-- Moviment writer
 	use 'tpope/vim-surround'
 	use 'wellle/targets.vim'
 
@@ -62,10 +65,22 @@ return require('packer').startup(function(use)
 	-- Coc
 	use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
 	use 'rafcamlet/coc-nvim-lua'
+
+	-- High Ligth
 	use 'sheerun/vim-polyglot'
+
+	-- Icons
 	use {
 		'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'
 	}
+
+	-- Test
+	-- use { "rcarriga/vim-ultest",
+	-- 	requires = {"vim-test/vim-test"},
+	-- 	run = ":UpdateRemotePlugins"
+	-- }
+	use 'vim-test/vim-test'
+	use 'rcarriga/vim-ultest'
 
 	-- use 'baky2708/nvimplugin'
 	-- use 'rafcamlet/nvim-whid'
@@ -75,4 +90,3 @@ return require('packer').startup(function(use)
 	-- use 'cknadler/vim-anywhere'
 	-- use {"ellisonleao/glow.nvim"}
 end)
-

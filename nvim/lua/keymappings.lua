@@ -124,7 +124,7 @@ endfunction
 
 ]]
 
-utils.map('n', '<leader><leader>c', ':call ChangeGruvbox()<CR> ')
+-- utils.map('n', '<leader><leader>c', ':call ChangeGruvbox()<CR> ')
 -- utils.map('n', '<leader><leader>cg', '!colo gruvbox')
 -- utils.map('n', '<leader><leader>ct', '!colo typewriter-dark')
 

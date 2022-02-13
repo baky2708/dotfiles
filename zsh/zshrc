@@ -113,10 +113,11 @@ alias mvim="nvim -u ~/.config/mvim/init.lua"
 alias typew="cd ~/Downloads/chrelad-keypress-03fd18a/"
 alias tx="tmuxinator"
 alias txc="nvim ~/.config/tmuxinator/"
-alias bim="vim -u ~/02-me/typewriter/vim-base/vimrc"
+alias bim="vim -u ~/02-me/vim/typewriter/vim-base/vimrc"
 alias otx="lua ~/02-me/lua/auto-tmuxinator/tx.lua"
 alias me="cd ~/02-me/"
 alias trybe="cd ~/01-trybe"
+alias wm="lua ~/02-me/lua/workflow-manager/workflow"
 
 #asdf
 . $HOME/.asdf/asdf.sh
