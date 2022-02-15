@@ -125,4 +125,5 @@ export PATH=$HOME/.local/scripts:$PATH
 #nvim 7.0
 export PATH=$HOME/tools/nvim-linux64/bin:$PATH
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-#yayaya
+#autosuggestion
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
