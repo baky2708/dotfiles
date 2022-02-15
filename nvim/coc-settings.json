@@ -1,5 +1,6 @@
 {
 	// "javascript.suggest.autoImports": true, 
 	// "typescript.suggest.autoImports": true
-	"prettier.singleQuote": true
+	"prettier.singleQuote": true,
+	"prettier.eslintIntegration": true
 }

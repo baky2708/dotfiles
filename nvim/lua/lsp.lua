@@ -8,6 +8,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
        spacing = 4,
      },
     -- delay update diagnostics
+    -- update_in_insert = false,
     update_in_insert = true,
   }
 )

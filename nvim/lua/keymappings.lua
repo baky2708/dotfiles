@@ -133,3 +133,6 @@ utils.map('n', '<C-c>', '<Esc>')
 
 -- Markdown
 utils.map('n', '<leader><leader>m', ':Glow<CR>')
+
+-- Code Actions
+utils.map('n', '<M-CR>', ':lua vim.lsp.buf.code_action()<CR>')
