@@ -118,6 +118,7 @@ alias otx="lua ~/02-me/lua/auto-tmuxinator/tx.lua"
 alias me="cd ~/02-me/"
 alias trybe="cd ~/01-trybe"
 alias wm="lua ~/02-me/lua/workflow-manager/workflow"
+alias ls="exa --icons "
 
 #asdf
 . $HOME/.asdf/asdf.sh
