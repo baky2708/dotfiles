@@ -1,0 +1,24 @@
+#!/usr/bin/env lua
+
+local lfs = require('lfs')
+local script_dir_path = debug.getinfo(1).short_src
+Path = string.match(script_dir_path, '(.*)kp')
+
+lfs.chdir(Path)
+
+local kp = require('functions-lua.kp')
+
+local process = arg[1]
+
+if kp.check_args(process) then
+	local key_pressed = kp.get_input(process)
+	if kp.confirmate(key_pressed) then
+		local all_id_process = kp.get_id_process(process)
+
+		for _,id_process in ipairs(all_id_process) do
+			kp.kill_process(id_process)
+		end
+	end
+else
+	print('add process in command.')
+end
