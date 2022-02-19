@@ -88,3 +88,10 @@ vim.cmd [[let vim_markdown_preview_github=1]]
 vim.cmd [[
   let test#javascript#reactscripts#options = "--watchAll=false"
 ]]
+
+-- TreeSitter
+require'nvim-treesitter.configs'.setup {
+  highlight = { enable = true },
+  incremental_selection = { enable = true },
+  textobjects = { enable = true }
+}

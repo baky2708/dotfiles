@@ -7,4 +7,3 @@ require('lsp')
 vim.cmd[[
 	source ~/.config/nvim/coc.vim
 ]]
--- require'lspconfig'.tsserver.setup{}

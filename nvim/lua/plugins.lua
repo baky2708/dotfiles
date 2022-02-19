@@ -67,7 +67,7 @@ return require('packer').startup(function(use)
 	use 'rafcamlet/coc-nvim-lua'
 
 	-- High Ligth
-	use 'sheerun/vim-polyglot'
+	-- use 'sheerun/vim-polyglot'
 
 	-- Icons
 	use {

@@ -1,5 +1,7 @@
 local utils = require('utils')
 
+local cmd = vim.cmd
+
 -- Leader key
 vim.g.mapleader = ' '
 -- Moviment Split
@@ -110,19 +112,19 @@ utils.map('n', '<leader>;', 'mz A;<Esc>`z<Left> ')
 utils.map('n', '<leader>,', 'mz A,<Esc>`z<Left> ')
 
 -- Change ColorScheme
-vim.cmd[[
-" Change color scheme
-function! ChangeGruvbox()
-    let actualColorScheme = g:colors_name
-    if(actualColorScheme == 'gruvbox')
-        colo typewriter
-    else
-        colo gruvbox
-        highlight Normal guibg=none
-    endif
-endfunction
-
-]]
+-- vim.cmd[[
+-- " Change color scheme
+-- function! ChangeGruvbox()
+--     let actualColorScheme = g:colors_name
+--     if(actualColorScheme == 'gruvbox')
+--         colo typewriter
+--     else
+--         colo gruvbox
+--         highlight Normal guibg=none
+--     endif
+-- endfunction
+--
+-- ]]
 
 -- utils.map('n', '<leader><leader>c', ':call ChangeGruvbox()<CR> ')
 -- utils.map('n', '<leader><leader>cg', '!colo gruvbox')
@@ -136,3 +138,7 @@ utils.map('n', '<leader><leader>m', ':Glow<CR>')
 
 -- Code Actions
 utils.map('n', '<M-CR>', ':lua vim.lsp.buf.code_action()<CR>')
+
+--Baky-Color
+utils.map('n', '<leader>cmp', ':call ColorMyPencils()<CR>')
+cmd ':call ColorMyPencils()'
