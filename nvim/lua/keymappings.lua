@@ -138,6 +138,7 @@ utils.map('n', '<leader><leader>m', ':Glow<CR>')
 
 -- Code Actions
 utils.map('n', '<M-CR>', ':lua vim.lsp.buf.code_action()<CR>')
+utils.map('n', '<leader>vd', ':lua vim.lsp.buf.definition()<CR>')
 
 --Baky-Color
 utils.map('n', '<leader>cmp', ':call ColorMyPencils()<CR>')

@@ -13,6 +13,8 @@ return require('packer').startup(function(use)
 
 	-- Nvim TreeSitter
 	use 'nvim-treesitter/nvim-treesitter'
+	use 'windwp/nvim-ts-autotag'
+	use 'p00f/nvim-ts-rainbow'
 
 	-- Nvim Tree
 	use {
@@ -75,12 +77,10 @@ return require('packer').startup(function(use)
 	}
 
 	-- Test
-	-- use { "rcarriga/vim-ultest",
-	-- 	requires = {"vim-test/vim-test"},
-	-- 	run = ":UpdateRemotePlugins"
-	-- }
 	use 'vim-test/vim-test'
 	use 'rcarriga/vim-ultest'
+
+	use 'styled-components/vim-styled-components'
 
 	-- use 'baky2708/nvimplugin'
 	-- use 'rafcamlet/nvim-whid'

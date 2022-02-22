@@ -31,7 +31,7 @@ nmap <silent> [] :CocDiagnostics<CR>
 nmap <leader>cd <Plug>(coc-definition)
 " nmap <silent> gy <Plug>(coc-type-definition)
 nmap <leader>ci <Plug>(coc-implementation)
-nmap <leader> cr <Plug>(coc-references)
+nmap <leader>cr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
