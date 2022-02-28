@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/baky/.local/share/nvim/site/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
+  ["SQHell.vim"] = {
+    loaded = true,
+    path = "/home/baky/.local/share/nvim/site/pack/packer/start/SQHell.vim",
+    url = "https://github.com/joereynolds/SQHell.vim"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/baky/.local/share/nvim/site/pack/packer/start/bufferline.nvim",

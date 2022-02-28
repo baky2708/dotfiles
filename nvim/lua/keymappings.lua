@@ -143,3 +143,7 @@ utils.map('n', '<leader>vd', ':lua vim.lsp.buf.definition()<CR>')
 --Baky-Color
 utils.map('n', '<leader>cmp', ':call ColorMyPencils()<CR>')
 cmd ':call ColorMyPencils()'
+
+-- Sql
+utils.map('n', '<leader>dbs', ':SQHShowDatabases<CR>')
+utils.map('n', '<leader>dbe', ':SQHExecute<CR>')

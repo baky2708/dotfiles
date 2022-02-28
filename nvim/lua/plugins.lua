@@ -81,6 +81,7 @@ return require('packer').startup(function(use)
 	use 'rcarriga/vim-ultest'
 
 	use 'styled-components/vim-styled-components'
+	use 'joereynolds/SQHell.vim'
 
 	-- use 'baky2708/nvimplugin'
 	-- use 'rafcamlet/nvim-whid'

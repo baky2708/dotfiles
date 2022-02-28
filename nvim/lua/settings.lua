@@ -41,6 +41,7 @@ utils.opt('o', 'errorbells', false)
 
 -- Tab
 utils.opt('o', 'tabstop', 2)
+utils.opt('o', 'expandtab', true)
 utils.opt('o', 'softtabstop', 2)
 utils.opt('o', 'shiftwidth', 2)
 

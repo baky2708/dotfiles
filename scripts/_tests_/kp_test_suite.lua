@@ -39,7 +39,7 @@ function TestGetIdProcess:testEmpty()
 end
 
 function TestGetIdProcess:testLength()
-	local process = 'sleep 0.02 &'
+	local process = 'sleep 0.04 &'
 	local result
 
 	result = kp.get_id_process('sleep')

@@ -35,11 +35,7 @@ Kp.get_input = function(process)
 end
 
 Kp.confirmate = function(key_pressed)
-	if key_pressed == 'y' then
-		return true
-	else
-		return false
-	end
+	return key_pressed == 'y'
 end
 
 return Kp

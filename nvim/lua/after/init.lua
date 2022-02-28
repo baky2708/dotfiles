@@ -91,9 +91,13 @@ vim.cmd [[
 
 -- TreeSitter
 require'nvim-treesitter.configs'.setup {
-  highlight = { enable = true },
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = true
+  },
   incremental_selection = { enable = true },
   textobjects = { enable = true },
+  indent = { enable = true },
 	autotag = {
 		enable = true,
 	},
@@ -103,3 +107,21 @@ require'nvim-treesitter.configs'.setup {
     max_file_lines = nil,
   }
 }
+
+-- DB
+vim.cmd [[
+	let g:sqh_provider = 'mysql'
+
+	let g:sqh_connections = {
+			\ 'default': {
+			\   'user': 'root',
+			\   'password': '2708',
+			\   'host': 'localhost'
+			\},
+			\ 'live': {
+			\   'user': 'root',
+			\   'password': 'jerw5Y^$Hdfj',
+			\   'host': '46.121.44.392'
+			\}
+	\}
+]]
