@@ -13,8 +13,7 @@ return require('packer').startup(function(use)
 
 	-- Nvim TreeSitter
 	use 'nvim-treesitter/nvim-treesitter'
-	use 'windwp/nvim-ts-autotag'
-	use 'p00f/nvim-ts-rainbow'
+	use 'styled-components/vim-styled-components'
 
 	-- Nvim Tree
 	use {
@@ -28,7 +27,6 @@ return require('packer').startup(function(use)
 	use 'windwp/nvim-autopairs'
 
 	-- Indent
-	--use 'glepnir/indent-guides.nvim'
 	use 'lukas-reineke/indent-blankline.nvim'
 
 	-- Status Line
@@ -36,12 +34,6 @@ return require('packer').startup(function(use)
   'nvim-lualine/lualine.nvim',
   requires = {'kyazdani42/nvim-web-devicons', opt = true}
 }
-	-- Linter
-	-- use 'dense-analysis/ale'
-	-- use 'mfussenegger/nvim-lint'
-	-- use 'mattn/efm-langserver'
-	--Navegator
-	-- use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
 
 	-- Game
 	use 'theprimeagen/vim-be-good'
@@ -67,9 +59,6 @@ return require('packer').startup(function(use)
 	use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
 	use 'rafcamlet/coc-nvim-lua'
 
-	-- High Ligth
-	-- use 'sheerun/vim-polyglot'
-
 	-- Icons
 	use {
 		'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'
@@ -79,17 +68,8 @@ return require('packer').startup(function(use)
 	use 'vim-test/vim-test'
 	use 'rcarriga/vim-ultest'
 
-	use 'styled-components/vim-styled-components'
-	use 'joereynolds/SQHell.vim'
+	-- use 'joereynolds/SQHell.vim'
 
   -- Harpoon
   use 'ThePrimeagen/harpoon'
-
-	-- use 'baky2708/nvimplugin'
-	-- use 'rafcamlet/nvim-whid'
-	-- Typewriter colorscheme
-	-- use 'logico/typewriter-vim'
-	-- use 'skywind3000/vim-keysound'
-	-- use 'cknadler/vim-anywhere'
-	-- use {"ellisonleao/glow.nvim"}
 end)
