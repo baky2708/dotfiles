@@ -1,14 +1,14 @@
 #---------- BASIC SYSTEM
 
 # assign [class="chrome"] 2
-assign [class="zoom"] 5
-assign [class="Slack"] 3
+assign [class="zoom"] 6
+assign [class="Slack"] 5
 assign [class="obs"] 9
-assign [class="discord"] 5
+assign [class="discord"] 6
 # assign [instance="localhost"] 3
 # bindsym $mod+m exec firefox --new-window --app=https://www.reddit.com/
-for_window [title="^localhost*"] move window to workspace $ws7
-for_window [title="^React*"] move window to workspace $ws7
+for_window [title="^localhost*"] move window to workspace $ws4
+for_window [title="^ReactApp*"] move window to workspace $ws4
 
 # mark current window
 bindsym $mod+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '

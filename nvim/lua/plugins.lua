@@ -20,7 +20,6 @@ return require('packer').startup(function(use)
 	use {
 	'kyazdani42/nvim-tree.lua',
 		requires = 'kyazdani42/nvim-web-devicons',
-		config = function() require'nvim-tree'.setup {} end
 }
 	-- Comment
 	use 'numToStr/Comment.nvim'
@@ -82,6 +81,9 @@ return require('packer').startup(function(use)
 
 	use 'styled-components/vim-styled-components'
 	use 'joereynolds/SQHell.vim'
+
+  -- Harpoon
+  use 'ThePrimeagen/harpoon'
 
 	-- use 'baky2708/nvimplugin'
 	-- use 'rafcamlet/nvim-whid'
