@@ -1,9 +1,5 @@
--- Sensible defaults
-vim.cmd[[
-	source ~/.config/nvim/coc.vim
-]]
+-- Master configs
 require('settings')
 require('plugins')
 require('keymappings')
 require('after')
--- require('lsp')

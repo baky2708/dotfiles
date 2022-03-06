@@ -56,8 +56,20 @@ return require('packer').startup(function(use)
 	}
 
 	-- Coc
-	use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
-	use 'rafcamlet/coc-nvim-lua'
+	-- use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
+	-- use 'rafcamlet/coc-nvim-lua'
+
+  -- Completion
+  use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
+  use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
+  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
+  use 'L3MON4D3/LuaSnip' -- Snippets plugin
+  
+
+  -- Snipets"
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'onsails/lspkind-nvim'
 
 	-- Icons
 	use {
