@@ -8,6 +8,7 @@ require('after.tree')
 require('after.tele')
 require('after.lsp')
 require('after.colors')
+require('after.dbui')
 
 -- Test
 vim.cmd [[

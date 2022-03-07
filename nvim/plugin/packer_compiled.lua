@@ -154,6 +154,11 @@ _G.packer_plugins = {
     path = "/home/baky/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-ts-autotag"] = {
+    loaded = true,
+    path = "/home/baky/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
+    url = "https://github.com/windwp/nvim-ts-autotag"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/baky/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -188,6 +193,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/baky/.local/share/nvim/site/pack/packer/start/vim-be-good",
     url = "https://github.com/theprimeagen/vim-be-good"
+  },
+  ["vim-dadbod"] = {
+    loaded = true,
+    path = "/home/baky/.local/share/nvim/site/pack/packer/start/vim-dadbod",
+    url = "https://github.com/tpope/vim-dadbod"
+  },
+  ["vim-dadbod-ui"] = {
+    loaded = true,
+    path = "/home/baky/.local/share/nvim/site/pack/packer/start/vim-dadbod-ui",
+    url = "https://github.com/kristijanhusak/vim-dadbod-ui"
   },
   ["vim-fugitive"] = {
     loaded = true,

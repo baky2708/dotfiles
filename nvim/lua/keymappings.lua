@@ -112,5 +112,4 @@ utils.map('n', '<leader><leader>m', ':Glow<CR>')
 utils.map('n', '<leader>vd', ':lua vim.lsp.buf.definition()<CR>')
 
 -- Sql
-utils.map('n', '<leader>dbs', ':SQHShowDatabases<CR>')
-utils.map('n', '<leader>dbe', ':SQHExecute<CR>')
+utils.map('n', '<leader>dbs', ':DBUI<CR>')
