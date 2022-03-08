@@ -86,4 +86,5 @@ return require('packer').startup(function(use)
 
   -- Harpoon
   use 'ThePrimeagen/harpoon'
+
 end)

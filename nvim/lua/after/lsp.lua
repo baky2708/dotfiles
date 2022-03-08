@@ -15,6 +15,13 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 local lspconfig = require('lspconfig')
 
+-- Inject lsp installer
+local lsp_installer = require("nvim-lsp-installer")
+lsp_installer.on_server_ready(function(server)
+    local opts = {}
+    server:setup(opts)
+end)
+
 -- Enable language servers
 local servers = { 'eslint', 'tsserver' }
 for _, lsp in ipairs(servers) do
