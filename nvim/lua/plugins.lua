@@ -82,9 +82,12 @@ return require('packer').startup(function(use)
   --DB
   use 'kristijanhusak/vim-dadbod-ui'
   use 'tpope/vim-dadbod'
-	-- use 'joereynolds/SQHell.vim'
 
   -- Harpoon
   use 'ThePrimeagen/harpoon'
+
+  -- Markdown Preview
+  use 'iamcco/markdown-preview.nvim'
+   -- use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
 
 end)
