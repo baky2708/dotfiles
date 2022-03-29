@@ -1,14 +1,15 @@
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-     virtual_text = {
-       spacing = 4,
-     },
-    -- delay update diagnostics
-    -- update_in_insert = false,
-    update_in_insert = true,
-  }
-)
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+--   vim.lsp.diagnostic.on_publish_diagnostics, {
+--      virtual_text = {
+--        spacing = 4,
+--      },
+--     -- delay update diagnostics
+--     -- update_in_insert = false,
+--     -- update_in_insert = true,
+--     update_in_normal = true,
+--   }
+-- )
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)

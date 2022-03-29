@@ -67,6 +67,7 @@ return require('packer').startup(function(use)
 
   -- Snipets"
   use 'L3MON4D3/LuaSnip'
+  use "rafamadriz/friendly-snippets"
   use 'saadparwaiz1/cmp_luasnip'
   use 'onsails/lspkind-nvim'
 
@@ -87,7 +88,6 @@ return require('packer').startup(function(use)
   use 'ThePrimeagen/harpoon'
 
   -- Markdown Preview
-  use 'iamcco/markdown-preview.nvim'
-   -- use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
+ use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
 
 end)

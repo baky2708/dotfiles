@@ -102,14 +102,40 @@ utils.map('n', '<leader>;', 'mz A;<Esc>`z<Left> ')
 utils.map('n', '<leader>,', 'mz A,<Esc>`z<Left> ')
 
 -- Easy Esc
-utils.map('n', '<C-c>', '<Esc>')
+vim.cmd [[
+imap <C-c> <Esc>
+]]
 
 -- Markdown
 utils.map('n', '<leader><leader>m', ':Glow<CR>')
 
 -- Code Actions
--- utils.map('n', '<M-CR>', ':lua vim.lsp.buf.code_action()<CR>')
-utils.map('n', '<leader>vd', ':lua vim.lsp.buf.definition()<CR>')
+utils.map('n', '<leader>gd', ':lua vim.lsp.buf.definition()<CR>')
+utils.map('n', 'K', ':lua vim.lsp.buf.hover()<CR>')
+utils.map('n', '<leader>vws', ':lua vim.lsp.buf.workspace_symbol()<CR>')
+utils.map('n', '<leader>vd', ':lua vim.diagnostic.open_float()<CR>')
+utils.map('n', '[d', ':lua vim.lsp.diagnostic.goto_next()<CR>')
+utils.map('n', ']d', ':lua vim.lsp.diagnostic.goto_prev()<CR>')
+utils.map('n', '<leader>vca', ':lua vim.lsp.buf.code_action()<CR>')
+utils.map('n', '<leader>vrr', ':lua vim.lsp.buf.references()<CR>')
+utils.map('n', '<leader>vrn', ':lua vim.lsp.buf.rename()<CR>')
 
 -- Sql
 utils.map('n', '<leader>dbs', ':DBUI<CR>')
+
+-- Harpoon
+vim.cmd [[
+nnoremap <silent><leader>a :lua require("harpoon.mark").add_file()<CR>
+nnoremap <silent><C-e> :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <silent><leader>tc :lua require("harpoon.cmd-ui").toggle_quick_menu()<CR>
+
+nnoremap <silent><M-;> :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <silent><M-,> :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <silent><M-.> :lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap <silent><M-p> :lua require("harpoon.ui").nav_file(4)<CR>
+nnoremap <silent><M-a> :lua require("harpoon.ui").nav_file(5)<CR>
+nnoremap <silent><M-o> :lua require("harpoon.ui").nav_file(6)<CR>
+nnoremap <silent><M-e> :lua require("harpoon.ui").nav_file(7)<CR>
+nnoremap <silent><M-u> :lua require("harpoon.ui").nav_file(8)<CR>
+]]
+
