@@ -15,21 +15,3 @@ require('after.ls')
 vim.cmd [[
   let test#javascript#reactscripts#options = "--watchAll=false"
 ]]
-
--- DB
-vim.cmd [[
-	let g:sqh_provider = 'mysql'
-
-	let g:sqh_connections = {
-			\ 'default': {
-			\   'user': 'root',
-			\   'password': '2708',
-			\   'host': 'localhost'
-			\},
-			\ 'live': {
-			\   'user': 'root',
-			\   'password': 'jerw5Y^$Hdfj',
-			\   'host': '46.121.44.392'
-			\}
-	\}
-]]

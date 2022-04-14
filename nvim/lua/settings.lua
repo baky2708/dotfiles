@@ -21,6 +21,9 @@ utils.opt('o', 'encoding', 'UTF-8')
 
 -- Copy out nvim
 utils.opt('o', 'clipboard', 'unnamedplus')
+cmd [[
+  set clipboard+=unnamedplus
+]]
 
 -- Fold
 utils.opt('w', 'foldmethod', 'syntax')
