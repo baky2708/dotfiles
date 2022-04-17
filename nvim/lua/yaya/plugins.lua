@@ -61,6 +61,7 @@ return packer.startup(function(use)
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
+	use 'gruvbox-community/gruvbox'
   use "lunarvim/darkplus.nvim"
 
     -- cmp plugins
@@ -94,9 +95,32 @@ return packer.startup(function(use)
   -- Git
   use "lewis6991/gitsigns.nvim"
 
+	-- Game
+	use 'theprimeagen/vim-be-good'
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
 end)
+
+	-- use 'styled-components/vim-styled-components'
+  -- use 'windwp/nvim-ts-autotag'
+  -- use 'windwp/nvim-ts-autotag'
+	-- use 'tpope/vim-rhubarb'
+	-- use 'tpope/vim-fugitive'
+	-- Auto Save
+	-- use 'Pocco81/AutoSave.nvim'
+
+	-- Moviment writer
+	-- use 'tpope/vim-surround'
+	-- use 'wellle/targets.vim'
+
+  -- use 'onsails/lspkind-nvim'
+	-- use 'vim-test/vim-test'
+	-- use 'rcarriga/vim-ultest'
+  -- use 'kristijanhusak/vim-dadbod-ui'
+  -- use 'tpope/vim-dadbod'
+  -- use 'ThePrimeagen/harpoon'
+  -- use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
