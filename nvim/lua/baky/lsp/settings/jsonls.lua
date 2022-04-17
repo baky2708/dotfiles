@@ -132,7 +132,7 @@ local schemas = {
     url = "https://json.schemastore.org/feed.json",
     versions = {
       ["1"] = "https://json.schemastore.org/feed-1.json",
-      ["1.1"] = "https://json.schemastore.og/feed.json",
+      ["1.1"] = "https://json.schemastore.org/feed.json",
     },
   },
   {

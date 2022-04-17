@@ -3,5 +3,5 @@ if not status_ok then
 	return
 end
 
-require("user.lsp.lsp-installer")
-require("user.lsp.handlers").setup()
+require("baky.lsp.lsp-installer")
+require("baky.lsp.handlers").setup()

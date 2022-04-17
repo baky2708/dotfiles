@@ -1,93 +1,75 @@
-return require('packer').startup(function(use)
-	-- Packer
-	use 'wbthomason/packer.nvim'
+local fn = vim.fn
 
-	-- Color Scheme
+-- Automatically install packer
+local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+if fn.empty(fn.glob(install_path)) > 0 then
+  PACKER_BOOTSTRAP = fn.system {
+    "git",
+    "clone",
+    "--depth",
+    "1",
+    "https://github.com/wbthomason/packer.nvim",
+    install_path,
+  }
+  print "Installing packer close and reopen Neovim..."
+  vim.cmd [[packadd packer.nvim]]
+end
+
+-- Autocommand that reloads neovim whenever you save the plugins.lua file
+vim.cmd [[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]]
+
+-- Use a protected call so we don't error out on first use
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+  return
+end
+
+-- Have packer use a popup window
+packer.init {
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "rounded" }
+    end,
+  },
+}
+
+-- Install your plugins here
+return packer.startup(function(use)
+  -- My plugins here
+  use "wbthomason/packer.nvim" -- Have packer manage itself
+  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
+  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+
+  -- Colorschemes
+  -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
+  use "lunarvim/darkplus.nvim"
 	use 'gruvbox-community/gruvbox'
 
-	-- Telescope
-	use {
-		'nvim-telescope/telescope.nvim',
-			requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
-}
+  -- cmp plugins
+  use "hrsh7th/nvim-cmp" -- The completion plugin
+  use "hrsh7th/cmp-buffer" -- buffer completions
+  use "hrsh7th/cmp-path" -- path completions
+  use "hrsh7th/cmp-cmdline" -- cmdline completions
+  use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-nvim-lua"
 
-	-- Nvim TreeSitter
-	use 'nvim-treesitter/nvim-treesitter'
-	use 'styled-components/vim-styled-components'
-  use 'windwp/nvim-ts-autotag'
+  -- snippets
+  use "L3MON4D3/LuaSnip" --snippet engine
+  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  --
+  -- LSP
+  use "neovim/nvim-lspconfig" -- enable LSP
+  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
 
-	-- Nvim Tree
-	use {
-	'kyazdani42/nvim-tree.lua',
-		requires = 'kyazdani42/nvim-web-devicons',
-}
-	-- Comment
-	use 'numToStr/Comment.nvim'
-
-	-- Auto Pairs
-	use 'windwp/nvim-autopairs'
-
-	-- Indent
-	use 'lukas-reineke/indent-blankline.nvim'
-
-	-- Status Line
-	use {
-  'nvim-lualine/lualine.nvim',
-  requires = {'kyazdani42/nvim-web-devicons', opt = true}
-}
-
-	-- Game
-	use 'theprimeagen/vim-be-good'
-
-	-- Git
-	use 'tpope/vim-rhubarb'
-	use 'tpope/vim-fugitive'
-
-	-- Auto Save
-	use 'Pocco81/AutoSave.nvim'
-
-	-- Moviment writer
-	use 'tpope/vim-surround'
-	use 'wellle/targets.vim'
-
-	-- Lsp
-	use {
-    'neovim/nvim-lspconfig',
-    'williamboman/nvim-lsp-installer',
-	}
-
-	-- Coc
-	-- use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
-	-- use 'rafcamlet/coc-nvim-lua'
-
-  -- Completion
-  use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
-  use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
-  
-
-  -- Snipets"
-  use 'L3MON4D3/LuaSnip'
-  use "rafamadriz/friendly-snippets"
-  use 'saadparwaiz1/cmp_luasnip'
-  use 'onsails/lspkind-nvim'
-
-	-- Icons
-	use {
-		'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'
-	}
-
-	-- Test
-	use 'vim-test/vim-test'
-	use 'rcarriga/vim-ultest'
-
-  --DB
-  use 'kristijanhusak/vim-dadbod-ui'
-  use 'tpope/vim-dadbod'
-
-  -- Harpoon
-  use 'ThePrimeagen/harpoon'
-
-  -- Markdown Preview
- use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
-
+  -- Automatically set up your configuration after cloning packer.nvim
+  -- Put this at the end after all plugins
+  if PACKER_BOOTSTRAP then
+    require("packer").sync()
+  end
 end)

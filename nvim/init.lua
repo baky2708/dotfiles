@@ -1,4 +1,6 @@
--- Master configs
--- require('baky')
-require('user')
--- require('yaya')
+require "baky.options"
+require "baky.plugins"
+require "baky.colorscheme"
+require "baky.keymapping"
+require "baky.cmp"
+require "baky.lsp"

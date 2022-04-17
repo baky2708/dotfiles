@@ -59,3 +59,4 @@ vim.cmd [[set formatoptions-=cro]] -- n -- TODO: this doesn't seem to work
 -- utils.opt('o', 'si', true)
 -- utils.opt('o', 'undodir', '/home/baky/.vim/undodir')
 utils.opt('o', 'colorcolumn', '80')
+
