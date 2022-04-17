@@ -100,3 +100,6 @@ mapping("n", "<leader>nn", ":NvimTreeToggle<cr>", opts)
 
 -- Comment
 -- gcc = comment
+
+-- DB
+mapping('n', '<leader>dbs', ':DBUI<CR>', opts)
