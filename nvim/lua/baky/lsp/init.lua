@@ -5,3 +5,4 @@ end
 
 require("baky.lsp.lsp-installer")
 require("baky.lsp.handlers").setup()
+require("baky.lsp.null-ls")
