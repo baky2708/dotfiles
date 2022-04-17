@@ -50,6 +50,10 @@ return packer.startup(function(use)
     tag = 'v0.6',
   } -- Easily comment stuff
 
+  -- Nvim tree
+  use 'kyazdani42/nvim-web-devicons'
+  use 'kyazdani42/nvim-tree.lua'
+
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"

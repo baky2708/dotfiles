@@ -98,3 +98,5 @@ mapping("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
 -- Nvimtree
 mapping("n", "<leader>nn", ":NvimTreeToggle<cr>", opts)
 
+-- Comment
+-- gcc = comment
