@@ -98,10 +98,28 @@ return packer.startup(function(use)
 
   -- Git
   use "lewis6991/gitsigns.nvim"
+	use 'tpope/vim-rhubarb'
+	use 'tpope/vim-fugitive'
 
   -- DB
   use 'kristijanhusak/vim-dadbod-ui'
   use 'tpope/vim-dadbod'
+
+  -- Game
+	use 'theprimeagen/vim-be-good'
+
+  -- Auto Save
+	use 'Pocco81/AutoSave.nvim'
+
+  -- Moviment writer
+  use 'tpope/vim-surround'
+  use 'wellle/targets.vim'
+
+  -- Markdown Preview
+  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
+
+    -- Harpoon
+  use 'ThePrimeagen/harpoon'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

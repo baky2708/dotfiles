@@ -103,3 +103,27 @@ mapping("n", "<leader>nn", ":NvimTreeToggle<cr>", opts)
 
 -- DB
 mapping('n', '<leader>dbs', ':DBUI<CR>', opts)
+
+-- Git
+-- mapping('n', '<leader>gs', ':G<CR>', opts)
+mapping('n', '<leader>gs', ':G<CR><C-w>10-',opts)
+
+-- Auto Save
+mapping('n', '<leader>as', ':ASToggle<CR>',opts)
+
+-- Harpoon
+vim.cmd [[
+nnoremap <silent><leader>a :lua require("harpoon.mark").add_file()<CR>
+nnoremap <silent><C-e> :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <silent><leader>tc :lua require("harpoon.cmd-ui").toggle_quick_menu()<CR>
+
+nnoremap <silent><M-;> :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <silent><M-,> :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <silent><M-.> :lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap <silent><M-p> :lua require("harpoon.ui").nav_file(4)<CR>
+nnoremap <silent><M-a> :lua require("harpoon.ui").nav_file(5)<CR>
+nnoremap <silent><M-o> :lua require("harpoon.ui").nav_file(6)<CR>
+nnoremap <silent><M-e> :lua require("harpoon.ui").nav_file(7)<CR>
+nnoremap <silent><M-u> :lua require("harpoon.ui").nav_file(8)<CR>
+]]
+

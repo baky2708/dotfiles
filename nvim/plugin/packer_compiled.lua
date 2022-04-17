@@ -69,6 +69,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["AutoSave.nvim"] = {
+    loaded = true,
+    path = "/home/baky/.local/share/nvim/site/pack/packer/start/AutoSave.nvim",
+    url = "https://github.com/Pocco81/AutoSave.nvim"
+  },
   ["Comment.nvim"] = {
     loaded = true,
     path = "/home/baky/.local/share/nvim/site/pack/packer/start/Comment.nvim",
@@ -144,6 +149,11 @@ _G.packer_plugins = {
     path = "/home/baky/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/gruvbox-community/gruvbox"
   },
+  harpoon = {
+    loaded = true,
+    path = "/home/baky/.local/share/nvim/site/pack/packer/start/harpoon",
+    url = "https://github.com/ThePrimeagen/harpoon"
+  },
   ["impatient.nvim"] = {
     loaded = true,
     path = "/home/baky/.local/share/nvim/site/pack/packer/start/impatient.nvim",
@@ -158,6 +168,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/baky/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  ["markdown-preview.nvim"] = {
+    loaded = true,
+    path = "/home/baky/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
+    url = "https://github.com/iamcco/markdown-preview.nvim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -224,6 +239,11 @@ _G.packer_plugins = {
     path = "/home/baky/.local/share/nvim/site/pack/packer/start/project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
   },
+  ["targets.vim"] = {
+    loaded = true,
+    path = "/home/baky/.local/share/nvim/site/pack/packer/start/targets.vim",
+    url = "https://github.com/wellle/targets.vim"
+  },
   ["telescope-media-files.nvim"] = {
     loaded = true,
     path = "/home/baky/.local/share/nvim/site/pack/packer/start/telescope-media-files.nvim",
@@ -244,6 +264,11 @@ _G.packer_plugins = {
     path = "/home/baky/.local/share/nvim/site/pack/packer/start/vim-bbye",
     url = "https://github.com/moll/vim-bbye"
   },
+  ["vim-be-good"] = {
+    loaded = true,
+    path = "/home/baky/.local/share/nvim/site/pack/packer/start/vim-be-good",
+    url = "https://github.com/theprimeagen/vim-be-good"
+  },
   ["vim-dadbod"] = {
     loaded = true,
     path = "/home/baky/.local/share/nvim/site/pack/packer/start/vim-dadbod",
@@ -253,6 +278,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/baky/.local/share/nvim/site/pack/packer/start/vim-dadbod-ui",
     url = "https://github.com/kristijanhusak/vim-dadbod-ui"
+  },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/home/baky/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-rhubarb"] = {
+    loaded = true,
+    path = "/home/baky/.local/share/nvim/site/pack/packer/start/vim-rhubarb",
+    url = "https://github.com/tpope/vim-rhubarb"
+  },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "/home/baky/.local/share/nvim/site/pack/packer/start/vim-surround",
+    url = "https://github.com/tpope/vim-surround"
   }
 }
 
