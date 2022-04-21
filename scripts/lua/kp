@@ -1,10 +1,11 @@
 #!/usr/bin/env lua
 
-local lfs = require('lfs')
+-- local lfs = require('lfs')
 local script_dir_path = debug.getinfo(1).short_src
 Path = string.match(script_dir_path, '(.*)kp')
 
-lfs.chdir(Path)
+-- lfs.chdir(Path)
+os.execute(Path)
 
 local kp = require('functions-lua.kp')
 

@@ -13,7 +13,7 @@ toggleterm.setup({
 	start_in_insert = true,
 	insert_mappings = true,
 	persist_size = true,
-	direction = "float",
+	direction = "horizontal",
 	close_on_exit = true,
 	shell = vim.o.shell,
 	float_opts = {
@@ -50,6 +50,8 @@ local node = Terminal:new({ cmd = "node", hidden = true })
 function _NODE_TOGGLE()
 	node:toggle()
 end
+
+vim.api.nvim_set_keymap("v", "<leader>tj", "<cmd>ToggleTermSendVisualLines<CR>", {noremap = true, silent = true})
 
 local ncdu = Terminal:new({ cmd = "ncdu", hidden = true })
 
