@@ -1,0 +1,11 @@
+#!/bin/sh
+
+dotfilesDir="$HOME/Projects/dotfiles"
+folderSelected="$dotfilesDir/$1"
+emptyArgMsg="Dont exist this folder: $1"
+
+if [[ -d $folderSelected ]]; then
+  cd $folderSelected
+else
+  echo $emptyArgMsg
+fi

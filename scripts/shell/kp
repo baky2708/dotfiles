@@ -1,0 +1,25 @@
+#!/bin/sh
+
+process=$1
+msg='You want kill ALL process from '
+yMsg="The ${process^^} is killed"
+nMsg="Aborting"
+emptyArgMsg="Need process to arg"
+if [[ $process == '' ]]; then
+  echo
+  echo $emptyArgMsg
+  exit 1
+fi
+
+echo $msg ${process^^} '(y/n)?'
+read keyPressed
+
+if [[ $keyPressed == 'y' ]]; then
+  killall $process
+  clear
+  echo $yMsg
+  exit 1
+fi
+
+echo
+echo $nMsg
