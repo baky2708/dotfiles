@@ -123,7 +123,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # 3] split in horizontal orientation
-bindsym $mod+semicolon split toggle
+bindsym $mod+apostrophe split toggle
 
 # 4] split in vertical orientation
 # bindsym $mod+v split v
@@ -172,7 +172,14 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
-# 11] move focused container to workspace
+# 10B] move focused container to workspace - one hand
+bindsym $mod+semicolon workspace number $ws6
+bindsym $mod+comma  workspace number $ws7
+bindsym $mod+period  workspace number $ws8
+bindsym $mod+p  workspace number $ws9
+bindsym $mod+y  workspace number $ws10
+
+# 11A] move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
@@ -183,6 +190,13 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# 11B] move focused container to workspace - one hand
+bindsym $mod+Shift+semicolon move container to workspace number $ws6
+bindsym $mod+Shift+comma move container to workspace number $ws7
+bindsym $mod+Shift+period move container to workspace number $ws8
+bindsym $mod+Shift+p move container to workspace number $ws9
+bindsym $mod+Shift+y move container to workspace number $ws10
 
 # 12A] reload the configuration file
 bindsym $mod+Shift+c reload
@@ -326,4 +340,12 @@ mode "$mode_Laucher" {
 
 set $mode_browser Browser: [f]irefox [c]hrome c[h]romiun [e]xit
 
+bindsym $mod+o mode $mode_Laucher
+
+# bindsym $mod+o workspace5; exec firefox --new-window https://www.reddit.com/;
+# for_window [title="Reddit - Dive into anything — Mozilla Firefox"] move workspace 6
+# bindsym $mod+o mark "%s"; workspace5; exec firefox --new-window https://www.reddit.com/; [con_mark="%s"] focus
+
+
+# bindsym $mod+apostrophe exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
 
