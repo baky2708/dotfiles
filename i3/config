@@ -14,7 +14,7 @@ font pango:monospace 15
 # font pango:DejaVu Sans Mono 8
 
 # start a terminal. We use kitty.
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+q kill
@@ -32,10 +32,11 @@ bindsym $mod+Shift+d exec --no-startup-id rofi -show run -theme Monokai
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Display Wallpaper
-exec_always feh --bg-fill /usr/share/backgrounds/i3/wall.png
+# exec_always feh --bg-fill /usr/share/backgrounds/illyria-default.jpg
+exec_always feh --bg-fill $HOME/Projects/dotfiles/wallpapers/main.png
 
 # Provide Gaps
-gaps inner 5
+gaps inner 1
 
 #Compositor transparency
 exec_always picom -f
@@ -348,4 +349,5 @@ bindsym $mod+o mode $mode_Laucher
 
 
 # bindsym $mod+apostrophe exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
+
 

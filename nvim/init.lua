@@ -17,3 +17,5 @@ require "baky.project"
 require "baky.impatient"
 require "baky.indentline"
 require "baky.alpha"
+
+vim.cmd [[set colorcolumn=80]] -- n -- TODO: this doesn't seem to work

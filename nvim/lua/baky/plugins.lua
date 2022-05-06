@@ -51,7 +51,10 @@ return packer.startup(function(use)
   } -- Easily comment stuff
 
   use 'kyazdani42/nvim-web-devicons'
-  use 'kyazdani42/nvim-tree.lua'
+  use {
+    'kyazdani42/nvim-tree.lua',
+    commit = "ce463a5"
+  }
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
   use 'nvim-lualine/lualine.nvim'

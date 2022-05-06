@@ -36,7 +36,7 @@ vim.opt.splitbelow = false -- n                      -- force all horizontal spl
 vim.opt.splitright = true -- n                      -- force all vertical splits to go to the right of current window
 vim.opt.updatetime = 300 -- n                       -- faster completion (4000ms default)
 vim.opt.writebackup = false -- n                    -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-vim.opt.cursorline = true -- n                      -- highlight the current line
+vim.opt.cursorline = false -- n                      -- highlight the current line
 vim.opt.sidescrolloff = 8 -- n
 vim.opt.guifont = "monospace:h17" -- n              -- the font used in graphical neovim applications
 vim.opt.numberwidth = 2 -- n                        -- set number column width to 2 {default 4}
@@ -44,6 +44,7 @@ vim.opt.shortmess:append "c" -- n
 vim.cmd "set whichwrap+=<,>,[,],h,l" -- n
 vim.cmd [[set iskeyword+=-]] -- n
 vim.cmd [[set formatoptions-=cro]] -- n -- TODO: this doesn't seem to work
+-- vim.cmd [[set colorcolumn=80]] -- n -- TODO: this doesn't seem to work
 
 
 -- dont have
@@ -58,5 +59,5 @@ vim.cmd [[set formatoptions-=cro]] -- n -- TODO: this doesn't seem to work
 -- utils.opt('o', 'softtabstop', 2)
 -- utils.opt('o', 'si', true)
 -- utils.opt('o', 'undodir', '/home/baky/.vim/undodir')
-utils.opt('o', 'colorcolumn', '80')
+-- utils.opt('o', 'colorcolumn', '80')
 
