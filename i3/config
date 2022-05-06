@@ -4,7 +4,8 @@
 # Set Super mod
 set $mod Mod4
 
-assign [class="zoom"] 12
+# assign [class="^Zoom*"] 12
+for_window [title="^Zoom.*"] move to workspace 12
 assign [class="Slack"] 11
 assign [class="obs"] 9
 assign [class="discord"] 6
