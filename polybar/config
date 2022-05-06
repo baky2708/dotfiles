@@ -56,12 +56,12 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 font-3 = FontAwesome:style=Regular;2
 
-modules-left = bspwm i3 xwindow
-modules-center = mpd
-;modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
-modules-right = alsa backlight xkeyboard memory cpu temperature battery eth date powermenu
+modules-left = bspwm pulseaudio xwindow
+modules-center = mpd i3
+; modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-right = backlight xkeyboard memory cpu temperature battery eth date powermenu
 
-tray-position = right
+tray-position = left
 tray-padding = 2
 ;tray-background = #0063ff
 
@@ -145,29 +145,45 @@ label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = %index%
+label-focused = %icon% %index%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
+label-unfocused = %icon% %index%
 label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index%
+label-visible = %icon% %index%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %index%
+label-urgent = %icon% %index%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
 ; Separator in between workspaces
 ; label-separator = |
 
+ws-icon-0 = 1;%{F#F9DE8F}
+ws-icon-1 = 2;%{F#F9DE8F}  
+ws-icon-2 = 3;%{F#F9DE8F}   
+ws-icon-3 = 4;%{F#F9DE8F}    
+ws-icon-4 = 5;%{F#F9DE8F}
+
+ws-icon-5 = 6;%{F#F90000}
+ws-icon-6 = 7;%{F#F90000}
+ws-icon-7 = 8;%{F#F90000}
+ws-icon-8 = 9;%{F#F90000}
+ws-icon-9 = 10;%{F#F90000}
+
+ws-icon-10 = 11;%{F#4bffdc}
+ws-icon-11 = 12;%{F#4bffdc}
+ws-icon-12 = 13;%{F#4bffdc}
+ws-icon-13 = 14;%{F#4bffdc}
 
 [module/mpd]
 type = internal/mpd
@@ -324,7 +340,7 @@ label = %date% %time%
 type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
+label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
 
 label-muted = 🔇 muted
