@@ -108,6 +108,7 @@ alias cdotf="cd ~/Projects/dotfiles"
 alias mpla="mplayer *"
 alias sx="startx"
 alias t="~/Projects/todo.txt-cli/todo.sh"
+alias gotrybe="docker run --rm -it -v $(pwd):/src -p 1313:1313 klakegg/hugo:0.83.1-ext-alpine server"
 
 alias mvim="nvim -u ~/.config/mvim/init.lua"
 alias typew="cd ~/Downloads/chrelad-keypress-03fd18a/"
@@ -128,3 +129,8 @@ export PATH=$HOME/tools/nvim-linux64/bin:$PATH
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 #autosuggestion
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# add brew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# add bin to path
+export PATH=$PATH:$HOME/bin

@@ -6,5 +6,8 @@ require'nvim-treesitter.configs'.setup {
   incremental_selection = { enable = true },
   textobjects = { enable = true },
   indent = { enable = true },
-  autotag = { enable = true },
+  autotag = {
+    enable = true,
+    filetypes = { "html" , "xml", "js", "jsx", "ts", "tsx" },
+  },
 }
