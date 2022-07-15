@@ -1,4 +1,9 @@
-
+require'lspconfig'.jdtls.setup{
+   cmd = { 'jdtls' },
+   root_dir = function(fname)
+      return require'lspconfig'.util.root_pattern('pom.xml', 'gradle.build', '.git')(fname) or vim.fn.getcwd()
+   end
+}
 -- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 --   vim.lsp.diagnostic.on_publish_diagnostics, {
 --      virtual_text = {
@@ -11,6 +16,7 @@
 --   }
 -- )
 -- Add additional capabilities supported by nvim-cmp
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
@@ -24,6 +30,7 @@ lsp_installer.on_server_ready(function(server)
 end)
 
 -- Enable language servers
+-- local servers = { 'eslint', 'tsserver', 'jdtls' }
 local servers = { 'eslint', 'tsserver' }
 -- local servers = { 'tsserver' }
 for _, lsp in ipairs(servers) do

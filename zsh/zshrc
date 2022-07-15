@@ -102,13 +102,17 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzshconfig="nvim ~/.oh-my-zsh"
 alias i3config="nvim ~/.config/i3/config"
-alias nvimconfig="nvim ~/.config/nvim"
+alias nvimconfig="nvim /home/baky/.local/share/nvim/site/pack/packer/start"
+alias cnvimconfig="cd /home/baky/.local/share/nvim/site/pack/packer/start"
+
 alias dotf="nvim ~/Projects/dotfiles"
 alias cdotf="cd ~/Projects/dotfiles"
 alias mpla="mplayer *"
 alias sx="startx"
 alias t="~/Projects/todo.txt-cli/todo.sh"
-alias gotrybe="docker run --rm -it -v $(pwd):/src -p 1313:1313 klakegg/hugo:0.83.1-ext-alpine server"
+# alias gotrybe="docker run --rm -it -v $(pwd):/src -p 1313:1313 klakegg/hugo:0.83.1-ext-alpine server"
+alias gotrybe="docker run --rm -it -v /home/baky/03-trybe-work/course:/src -p 1313:1313 klakegg/hugo:0.83.1-ext-alpine server"
+alias gomodular="docker run --rm -it -v /home/baky/03-trybe-work/conteudo-modular-desenvolvimento-web -p 1313:1313 klakegg/hugo:0.83.1-ext-alpine server"
 
 alias mvim="nvim -u ~/.config/mvim/init.lua"
 alias typew="cd ~/Downloads/chrelad-keypress-03fd18a/"
@@ -120,17 +124,28 @@ alias me="cd ~/02-me/"
 alias trybe="cd ~/01-trybe"
 alias wm="lua ~/02-me/lua/workflow-manager/workflow"
 alias ls="exa --icons "
+alias getcode="lua ~/02-me/lua/get-code/get-code"
+alias work="cd ~/03-trybe-work/"
+alias tsconf="lua ~/Projects/dotfiles/scripts/tsconfig.lua"
+alias pdi="nvim ~/02-me/PDI/"
+# alias mvnexec='mvn exec:java -Dexec.mainClass=com.trybe.acc.java.controledeacesso.Principal'
+alias mvngo='f() { mvn exec:java -Dexec.mainClass=$1 };f'
 
 #asdf
 . $HOME/.asdf/asdf.sh
 export PATH=$HOME/.local/scripts:$PATH
-#nvim 7.0
-export PATH=$HOME/tools/nvim-linux64/bin:$PATH
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 #autosuggestion
+
+# bin asdf node
+export PATH="$HOME/.asdf/installs/nodejs/18.2.0/.npm/bin/:$PATH"
+
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # add brew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 # add bin to path
 export PATH=$PATH:$HOME/bin
+
+# java_home
+. ~/.asdf/plugins/java/set-java-home.zsh

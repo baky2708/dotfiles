@@ -158,7 +158,8 @@ bindsym $mod+r exec alacritty -e "ranger"
 bindsym $mod+Shift+d exec  alacritty -e nvim ~/Projects/dotfiles
 # start browser
 # bindsym $mod+Shift+Return exec firefox
-bindsym $mod+Shift+Return exec google-chrome-stable
+# bindsym $mod+Shift+Return exec google-chrome-stable
+bindsym $mod+Shift+Return exec firefox
 # bindsym $mod+Control+Return exec --no-startup-id i3-msg 
 
 # bindsym $mod+Shift+Return exec firefox
@@ -286,12 +287,15 @@ mode "move" {
 
 
 bindsym $mod+o mode "$mode_Laucher"
+set $open_new_tab_firefox exec firefox --new-tab
+set $open_new_window_firefox exec firefox --new-window
 
 set $mode_Laucher Laucher: [b]rowsers [a]pps
 
 mode "$mode_browser" {
     bindsym f exec firefox
     bindsym c exec google-chrome-stable
+    bindsym t $open_new_tab_firefox https://github.com/betrybe/course/milestone/195; $open_new_tab_firefox https://github.com/orgs/betrybe/projects/16?card_filter_query=milestone%3A%22%5Bfront-end%5D+sprint+126%22; $open_new_tab_firefox https://app.betrybe.com/login; $open_new_tab_firefox http://localhost:1313; mode "default"
 
     bindsym e mode "default"
     bindsym Escape mode "default"
@@ -305,7 +309,11 @@ mode "$mode_Laucher" {
     bindsym Return mode "default"
     }
 
-set $mode_browser Browser: [f]irefox [c]hrome c[h]romiun [e]xit
+set $mode_browser Browser: [f]irefox [c]hrome c[h]romiun [e]xit [t]rybe
+
+# bindsym exec --no-startup-id i3-msg 'workspace 1:Web; exec /usr/bin/firefox'
+# bindsym $mod+e exec i3-msg 'workspace 1:Web; exec /usr/bin/firefox'
+bindsym $mod+e exec i3-msg 'workspace 1; exec firefox'
 
 # bindsym $mod+Control Left resize shrink width 5px or 5ppt
 # bindsym $mod+Control Up resize grow height 5px or 5ppt

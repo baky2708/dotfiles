@@ -1,4 +1,5 @@
-local utils = require('utils')
+-- utils;
+local utils = require('utils');
 
 -- Leader key
 vim.g.mapleader = ' '
@@ -55,7 +56,7 @@ utils.map('n', '<leader>nn', ':NvimTreeToggle<CR>')
 -- Buffers Navegation
 utils.map('n', '<M-l>', ':bn<CR>')
 utils.map('n', '<M-h>', ':bp<CR>')
-utils.map('n', '<c-x>', ':bd<CR>')
+utils.map('n', '<C-q>', ':bd<CR>')
 
 -- Git
 utils.map('n', '<leader>gs', ':G<CR>')
@@ -164,3 +165,38 @@ vnoremap <F6> :<c-u>call Exec_on_term("visual", "curr")<CR>
 nnoremap <Leader>dn :call Exec_on_term("normal", "next")<CR>
 ]]
 
+vim.cmd[[
+" List available databases
+nnoremap <leader>mdb <cmd>lua require('mongo-nvim.telescope.pickers').database_picker()<cr>
+" List collections in database (arg: database name)
+nnoremap <leader>mdbc <cmd>lua require('mongo-nvim.telescope.pickers').collection_picker('commerce')<cr>
+" List documents in a database's collection (arg: database name, collection name)
+nnoremap <leader>mdbd <cmd>lua require('mongo-nvim.telescope.pickers').document_picker('examples', 'movies')<cr>
+  ]]
+
+-- exec mvn project
+
+-- local function sayYaya()
+--   os.execute('echo yaya');
+-- end
+-- --
+-- utils.map('n', '<leader>ya', ':lua require("after.yaya")<CR>')
+vim.cmd[[
+function! MvnExec()
+  let hei = split(getline(1))
+  let ya = get(hei, 1, 'default')
+  let package = substitute(ya, ';', '\.', '')
+  call remove(hei, 0)
+  let fileName = expand('%:t:r')
+  let toExec = 'mvn exec:java -Dexec.mainClass='.package.fileName
+  " let toCopy = package.fileName
+  " let go = 'ls'
+  " let @+ = toCopy
+  " echo 'Copied:' toCopy
+  " exec ':terminal 'go '&&' toExec
+  exec ':terminal 'toExec
+endfunction
+]]
+
+-- utils.map('n', '<leader>ya', ':call MvnExec()<CR>')
+utils.map('n', '<leader>ya', ':vsp<CR><C-w>l:call MvnExec()<CR>')
