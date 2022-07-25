@@ -174,13 +174,6 @@ nnoremap <leader>mdbc <cmd>lua require('mongo-nvim.telescope.pickers').collectio
 nnoremap <leader>mdbd <cmd>lua require('mongo-nvim.telescope.pickers').document_picker('examples', 'movies')<cr>
   ]]
 
--- exec mvn project
-
--- local function sayYaya()
---   os.execute('echo yaya');
--- end
--- --
--- utils.map('n', '<leader>ya', ':lua require("after.yaya")<CR>')
 vim.cmd[[
 function! MvnExec()
   let hei = split(getline(1))
@@ -198,5 +191,4 @@ function! MvnExec()
 endfunction
 ]]
 
--- utils.map('n', '<leader>ya', ':call MvnExec()<CR>')
 utils.map('n', '<leader>ya', ':vsp<CR><C-w>l:call MvnExec()<CR>')

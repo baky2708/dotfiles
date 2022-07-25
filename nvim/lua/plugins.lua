@@ -128,8 +128,8 @@ end
 }
   use 'tree-sitter/tree-sitter-json'
   -- Java
-use 'mfussenegger/nvim-jdtls'
-use 'mfussenegger/nvim-dap'
-  use 'vim-syntastic/syntastic'
+  use 'mfussenegger/nvim-jdtls'
+  -- use 'mfussenegger/nvim-dap'
+  -- use 'vim-syntastic/syntastic'
 
 end)

@@ -29,9 +29,53 @@ lsp_installer.on_server_ready(function(server)
     server:setup(opts)
 end)
 
+-- lspconfig.stylelint_lsp.setup {
+--   settings = {
+--     stylelintplus = {
+--       autoFixOnSave = true,
+--       autoFixOnFormat = true,
+--     }
+--   },
+-- }
+--
+local function addActionOnSave(name, pattern, callback)
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = pattern,
+    callback = callback or function() vim.lsp.buf.format() end,
+    group = vim.api.nvim_create_augroup(name .. "_on_save", {}),
+  })
+end
+
+local function on_attach()
+  -- Set common mappings
+  -- vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename)
+  -- vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action)
+  -- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+  -- vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+  -- vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
+end
+
+-- lspconfig.stylelint_lsp.setup {
+--   capabilities = capabilities,
+--   on_attach = function()
+--     on_attach()
+--     addActionOnSave(
+--       "stylelint_lsp",
+--       { "*.css", "*.scss" }
+--     )
+--   end,
+--   settings = {
+--     stylelintplus = {
+--       autoFixOnFormat = true,
+--     },
+--   },
+-- }
+--
+
+
 -- Enable language servers
--- local servers = { 'eslint', 'tsserver', 'jdtls' }
-local servers = { 'eslint', 'tsserver' }
+local servers = { 'eslint', 'tsserver', 'jdtls' }
+-- local servers = { 'eslint', 'tsserver', 'stylelint_lsp' }
 -- local servers = { 'tsserver' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -39,6 +83,15 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
+lspconfig.stylelint_lsp.setup{
+  settings = {
+    stylelintplus = {
+      -- see available options in stylelint-lsp documentation
+    },
+    filetypes = { "css", "scss" },
+  }
+}
 
 -- luasnip setup
 local luasnip = require 'luasnip'
