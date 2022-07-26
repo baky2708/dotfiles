@@ -35,6 +35,13 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 -- Press jk fast to exit insert mode 
 -- keymap("i", "jk", "<ESC>", opts)
 
+-- Move in Insert Mode
+keymap('i', '<M-k>', '<C-o>gk', opts)
+keymap('i', '<M-j>', '<C-o>gj', opts)
+keymap('i', '<M-h>', '<left>', opts)
+keymap('i', '<M-l>', '<right>', opts)
+
+
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
@@ -58,3 +65,7 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+
+vim.cmd [[
+  imap <C-c> <Esc>
+]]
