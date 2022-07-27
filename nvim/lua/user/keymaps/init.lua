@@ -5,7 +5,7 @@ local term_opts = { silent = true }
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
---Remap space as leader key
+-- Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -36,16 +36,11 @@ keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
 -- Better paste
 keymap("v", "p", '"_dP', opts)
 
--- Move text up and down
--- keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
--- keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
-
 -- Move in Insert Mode
 keymap('i', '<M-k>', '<C-o>gk', opts)
 keymap('i', '<M-j>', '<C-o>gj', opts)
 keymap('i', '<M-h>', '<left>', opts)
 keymap('i', '<M-l>', '<right>', opts)
-
 
 -- Visual --
 -- Stay in indent mode
@@ -64,51 +59,84 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
--- Terminal --
--- Better terminal navigation
--- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
--- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
--- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
--- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+-- -- I hate typing these
+keymap("n", "H", "^", opts)
+keymap("n", "L", "$", opts)
+keymap("v", "H", "^", opts)
+keymap("v", "L", "$", opts)
+keymap("x", "H", "^", opts)
+keymap("x", "L", "$", opts)
+keymap("o", "H", "^", opts)
+keymap("o", "L", "$", opts)
+
+-- Enter to main menu
+keymap("n", "<RightMouse>", ":Alpha<CR>", opts)
+
+vim.cmd[[
+function! MvnExec()
+  let hei = split(getline(1))
+  let ya = get(hei, 1, 'default')
+  let package = substitute(ya, ';', '\.', '')
+  call remove(hei, 0)
+  let fileName = expand('%:t:r')
+  let toExec = 'mvn exec:java -Dexec.mainClass='.package.fileName
+  exec ':terminal 'toExec
+endfunction
+]]
+
+keymap('n', '<leader>ya', ':vsp<CR><C-w>l:call MvnExec()<CR>', opts)
+
+-- Write ';' and ',' in end line
+keymap('n', '<leader>;', 'mz A;<Esc>`z<Left> ', opts)
+keymap('n', '<leader>,', 'mz A,<Esc>`z<Left> ', opts)
+
 
 -- New Esc
 vim.cmd [[
   imap <C-c> <Esc>
 ]]
 
--- Plugins --
+-- ################# Plugins #################
 
 -- Git: main key = 'g'
 local gitCommands = {
-  a = ':G<CR>',
-  o = ':Git status<CR>',
-  e = ':Gvdiffsplit<CR>',
+  a = { 'n', ':G<CR>'},
+  o = { 'n', ':Git status<CR>'},
+  e = { 'n', ':Gvdiffsplit<CR>'},
 }
 
 for k, v in pairs(gitCommands) do
-  keymap('n', '<leader>g'..k, v, opts)
+  keymap(v[1], '<leader>g'..k, v[2], opts)
 end
 
 -- NvimTree: main key = 'n'
 keymap("n", "<leader>n", ":NvimTreeToggle<CR>", opts)
 
--- Telescope
+-- Telescope: main key = 't'
 
 local telescopeCommands = {
-  a = ':Telescope find_files<CR>',
-  o = ':Telescope live_grep<CR>',
-  e = ':Telescope projects<CR>',
-  u = ':Telescope buffers<CR>',
+  a = { 'n', ':Telescope find_files<CR>'},
+  o = { 'n', ':Telescope live_grep<CR>'},
+  e = { 'n', ':Telescope projects<CR>'},
+  u = { 'n', ':Telescope buffers<CR>'},
 }
 
 for k, v in pairs(telescopeCommands) do
-  keymap('n', '<leader>t'..k, v, opts)
+  keymap(v[1], '<leader>t'..k, v[2], opts)
 end
 
--- Comment
-keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
-keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', opts)
---
+-- Comment: main key = 'c'
+
+local commentCommands = {
+  a = { 'n', '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>' },
+  o = { 'x', '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>' },
+}
+
+for k, v in pairs(commentCommands) do
+  keymap(v[1], '<leader>c'..k, v[2], opts)
+end
+
+
 -- -- DAP
 -- keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
 -- keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
@@ -124,18 +152,6 @@ keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_o
 -- keymap("n", "<m-t>", ":tabnew %<cr>", opts)
 -- keymap("n", "<m-y>", ":tabclose<cr>", opts)
 -- keymap("n", "<m-\\>", ":tabonly<cr>", opts)
-
--- -- I hate typing these
-keymap("n", "H", "^", opts)
-keymap("n", "L", "$", opts)
-keymap("v", "H", "^", opts)
-keymap("v", "L", "$", opts)
-keymap("x", "H", "^", opts)
-keymap("x", "L", "$", opts)
-keymap("o", "H", "^", opts)
-keymap("o", "L", "$", opts)
-
-keymap("n", "<RightMouse>", ":Alpha<CR>", opts)
 
 -- keymap("n", "<leader>a", "<cmd>Telescope resume<cr>", opts)
 -- keymap("n", "<leader>a", "<cmd>Telescope commands<CR>", opts)
@@ -162,21 +178,9 @@ keymap("n", "<RightMouse>", ":Alpha<CR>", opts)
 --
 -- keymap("n", "<c-l>", "<cmd>lua vim.lsp.codelens.run()<cr>", opts)
 
-vim.cmd[[
-function! MvnExec()
-  let hei = split(getline(1))
-  let ya = get(hei, 1, 'default')
-  let package = substitute(ya, ';', '\.', '')
-  call remove(hei, 0)
-  let fileName = expand('%:t:r')
-  let toExec = 'mvn exec:java -Dexec.mainClass='.package.fileName
-  exec ':terminal 'toExec
-endfunction
-]]
-
-keymap('n', '<leader>ya', ':vsp<CR><C-w>l:call MvnExec()<CR>', opts)
-
--- Write ';' and ',' in end line
-keymap('n', '<leader>;', 'mz A;<Esc>`z<Left> ', opts)
-keymap('n', '<leader>,', 'mz A,<Esc>`z<Left> ', opts)
-
+-- Terminal --
+-- Better terminal navigation
+-- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
+-- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
+-- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
+-- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
