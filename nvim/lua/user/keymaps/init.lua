@@ -78,17 +78,34 @@ vim.cmd [[
 
 -- Plugins --
 
--- NvimTree
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+-- Git: main key = 'g'
+local gitCommands = {
+  a = ':G<CR>',
+  o = ':Git status<CR>',
+  e = ':Gvdiffsplit<CR>',
+}
+
+for k, v in pairs(gitCommands) do
+  keymap('n', '<leader>g'..k, v, opts)
+end
+
+-- NvimTree: main key = 'n'
+keymap("n", "<leader>n", ":NvimTreeToggle<CR>", opts)
 
 -- Telescope
-keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
-keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
-keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
---
--- -- Comment
+local telescopeCommands = {
+  a = ':Telescope find_files<CR>',
+  o = ':Telescope live_grep<CR>',
+  e = ':Telescope projects<CR>',
+  u = ':Telescope buffers<CR>',
+}
+
+for k, v in pairs(telescopeCommands) do
+  keymap('n', '<leader>t'..k, v, opts)
+end
+
+-- Comment
 keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
 keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', opts)
 --
@@ -163,13 +180,3 @@ keymap('n', '<leader>ya', ':vsp<CR><C-w>l:call MvnExec()<CR>', opts)
 keymap('n', '<leader>;', 'mz A;<Esc>`z<Left> ', opts)
 keymap('n', '<leader>,', 'mz A,<Esc>`z<Left> ', opts)
 
--- Git: main key = 'g'
-local gitCommands = {
-  a = ':G<CR>',
-  o = ':Git status<CR>',
-  e = ':Gvdiffsplit<CR>',
-}
-
-for k, v in pairs(gitCommands) do
-  keymap('n', '<leader>g'..k, v, opts)
-end
