@@ -24,8 +24,8 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<M-l>", ":bnext<CR>", opts)
+keymap("n", "<M-h>", ":bprevious<CR>", opts)
 
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
@@ -128,9 +128,9 @@ keymap("n", "<RightMouse>", ":Alpha<CR>", opts)
 -- keymap("n", "<C-p>", "<cmd>Telescope projects<cr>", opts)
 -- keymap("n", "<C-t>", "<cmd>lua vim.lsp.buf.document_symbol()<cr>", opts)
 --
-vim.api.nvim_set_keymap("n", "<tab>", "<cmd>lua require('telescope').extensions.harpoon.marks(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Harpoon'})<cr>", opts)
+-- vim.api.nvim_set_keymap("n", "<tab>", "<cmd>lua require('telescope').extensions.harpoon.marks(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Harpoon'})<cr>", opts)
 --
-vim.api.nvim_set_keymap("n", "<m-g>", "<cmd>Telescope git_branches<cr>", opts)
+-- vim.api.nvim_set_keymap("n", "<m-g>", "<cmd>Telescope git_branches<cr>", opts)
 --
 -- vim.cmd [[
 --   function! QuickFixToggle()
@@ -145,3 +145,22 @@ vim.api.nvim_set_keymap("n", "<m-g>", "<cmd>Telescope git_branches<cr>", opts)
 -- keymap("n", "<m-q>", ":call QuickFixToggle()<cr>", opts)
 --
 -- keymap("n", "<c-l>", "<cmd>lua vim.lsp.codelens.run()<cr>", opts)
+
+vim.cmd[[
+function! MvnExec()
+  let hei = split(getline(1))
+  let ya = get(hei, 1, 'default')
+  let package = substitute(ya, ';', '\.', '')
+  call remove(hei, 0)
+  let fileName = expand('%:t:r')
+  let toExec = 'mvn exec:java -Dexec.mainClass='.package.fileName
+  " let toCopy = package.fileName
+  " let go = 'ls'
+  " let @+ = toCopy
+  " echo 'Copied:' toCopy
+  " exec ':terminal 'go '&&' toExec
+  exec ':terminal 'toExec
+endfunction
+]]
+
+keymap('n', '<leader>ya', ':vsp<CR><C-w>l:call MvnExec()<CR>', opts)

@@ -158,8 +158,8 @@ bindsym $mod+r exec alacritty -e "ranger"
 bindsym $mod+Shift+d exec  alacritty -e nvim ~/Projects/dotfiles
 # start browser
 # bindsym $mod+Shift+Return exec firefox
-# bindsym $mod+Shift+Return exec google-chrome-stable
-bindsym $mod+Shift+Return exec firefox
+bindsym $mod+Shift+Return exec google-chrome-stable
+# bindsym $mod+Shift+Return exec firefox
 # bindsym $mod+Control+Return exec --no-startup-id i3-msg 
 
 # bindsym $mod+Shift+Return exec firefox
