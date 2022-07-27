@@ -71,6 +71,7 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
+-- New Esc
 vim.cmd [[
   imap <C-c> <Esc>
 ]]
@@ -86,8 +87,6 @@ keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
--- Git
-keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 --
 -- -- Comment
 keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
@@ -154,13 +153,23 @@ function! MvnExec()
   call remove(hei, 0)
   let fileName = expand('%:t:r')
   let toExec = 'mvn exec:java -Dexec.mainClass='.package.fileName
-  " let toCopy = package.fileName
-  " let go = 'ls'
-  " let @+ = toCopy
-  " echo 'Copied:' toCopy
-  " exec ':terminal 'go '&&' toExec
   exec ':terminal 'toExec
 endfunction
 ]]
 
 keymap('n', '<leader>ya', ':vsp<CR><C-w>l:call MvnExec()<CR>', opts)
+
+-- Write ';' and ',' in end line
+keymap('n', '<leader>;', 'mz A;<Esc>`z<Left> ', opts)
+keymap('n', '<leader>,', 'mz A,<Esc>`z<Left> ', opts)
+
+-- Git: main key = 'g'
+local gitCommands = {
+  a = ':G<CR>',
+  o = ':Git status<CR>',
+  e = ':Gvdiffsplit<CR>',
+}
+
+for k, v in pairs(gitCommands) do
+  keymap('n', '<leader>g'..k, v, opts)
+end
