@@ -4,6 +4,7 @@ vim.opt_local.cmdheight = 2 -- more space in the neovim command line for display
 
 local status, jdtls = pcall(require, "jdtls")
 if not status then
+  vim.notify "JDTLS not found, install with `:LspInstall jdtls`"
   return
 end
 
@@ -83,7 +84,7 @@ local config = {
     -- 💀
     -- See `data directory configuration` section in the README
     "-data",
-    workspace_dir,
+    -- workspace_dir,
   },
 
   on_attach = require("user.lsp.handlers").on_attach,
