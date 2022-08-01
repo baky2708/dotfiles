@@ -73,18 +73,37 @@ keymap("o", "L", "$", opts)
 keymap("n", "<RightMouse>", ":Alpha<CR>", opts)
 
 vim.cmd[[
-function! MvnExec()
+function! MvnGetPackageFile()
   let hei = split(getline(1))
   let ya = get(hei, 1, 'default')
   let package = substitute(ya, ';', '\.', '')
   call remove(hei, 0)
   let fileName = expand('%:t:r')
-  let toExec = 'mvn exec:java -Dexec.mainClass='.package.fileName
+  return package.fileName
+endfunction
+]]
+
+vim.cmd[[
+function! MvnExec()
+  let package_file = MvnGetPackageFile()
+  let toExec = 'mvn exec:java -Dexec.mainClass='.package_file
   exec ':terminal 'toExec
 endfunction
 ]]
 
-keymap('n', '<leader>ya', ':vsp<CR><C-w>l:call MvnExec()<CR>', opts)
+vim.cmd[[
+function! MvnCopy()
+  let package_file = MvnGetPackageFile()
+  let @+ = package_file
+  echo 'Copied:' package_file
+endfunction
+]]
+
+keymap('n', '<leader>ma', ':vsp<CR><C-w>l:call MvnExec()<CR>', opts)
+keymap('n', '<leader>tl', ':vsp<CR><C-w>l:terminal<CR>a', opts)
+
+keymap('n', '<leader>me', ':exec MvnCopy()<CR>', opts)
+keymap('n', '<leader>mp', ':!mvn clean package<CR>', opts)
 
 -- Write ';' and ',' in end line
 keymap('n', '<leader>;', 'mz A;<Esc>`z<Left> ', opts)

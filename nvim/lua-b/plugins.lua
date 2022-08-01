@@ -132,6 +132,8 @@ end
   -- use 'mfussenegger/nvim-dap'
   -- use 'vim-syntastic/syntastic'
 
+  use 'dhruvasagar/vim-zoom'
+
 end)
 
 	-- use 'styled-components/vim-styled-components'
