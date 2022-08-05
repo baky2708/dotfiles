@@ -130,6 +130,7 @@ alias tsconf="lua ~/Projects/dotfiles/scripts/tsconfig.lua"
 alias pdi="nvim ~/02-me/PDI/"
 # alias mvnexec='mvn exec:java -Dexec.mainClass=com.trybe.acc.java.controledeacesso.Principal'
 alias mvngo='f() { mvn exec:java -Dexec.mainClass=$1 };f'
+alias start-project='lua ~/02-me/lua/start-project/start_project.lua'
 
 #asdf
 . $HOME/.asdf/asdf.sh
