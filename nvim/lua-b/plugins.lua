@@ -63,7 +63,7 @@ return require('packer').startup(function(use)
   -- Completion
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
   use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
-  
+ 
 
   -- Snipets"
   use 'L3MON4D3/LuaSnip'
@@ -132,4 +132,29 @@ end
   -- use 'mfussenegger/nvim-dap'
   -- use 'vim-syntastic/syntastic'
 
+  use 'dhruvasagar/vim-zoom'
+
 end)
+
+	-- use 'styled-components/vim-styled-components'
+ --  use 'windwp/nvim-ts-autotag'
+ --  use 'kyazdani42/nvim-web-devicons'
+	-- use 'theprimeagen/vim-be-good'
+	-- use 'tpope/vim-rhubarb'
+	-- use 'tpope/vim-fugitive'
+	-- use 'Pocco81/AutoSave.nvim'
+	-- use 'tpope/vim-surround'
+	-- use 'wellle/targets.vim'
+ --  use 'L3MON4D3/LuaSnip'
+ --  use "rafamadriz/friendly-snippets"
+ --  use 'saadparwaiz1/cmp_luasnip'
+ --  use 'onsails/lspkind-nvim'
+	-- use 'vim-test/vim-test'
+ --  use 'kristijanhusak/vim-dadbod-ui'
+ --  use 'tpope/vim-dadbod'
+ --  use 'ThePrimeagen/harpoon'
+ --  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
+ --  use { 'thibthib18/mongo-nvim'
+ --  use {
+ --  "NTBBloodbath/rest.nvim",
+ --  use 'tree-sitter/tree-sitter-json'
