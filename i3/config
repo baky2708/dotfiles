@@ -320,3 +320,5 @@ bindsym $mod+e exec i3-msg 'workspace 1; exec firefox'
 # bindsym $mod+Control Down resize shrink height 5px or 5ppt
 
 #---------- END MODES
+
+bindsym $mod+space exec wmfocus -c aoeu;
