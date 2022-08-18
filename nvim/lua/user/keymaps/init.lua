@@ -145,7 +145,7 @@ for k, v in pairs(telescopeCommands) do
 end
 
 -- Comment: main key = 'c'
-
+--
 local commentCommands = {
   a = { 'n', '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>' },
   o = { 'x', '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>' },
@@ -154,6 +154,9 @@ local commentCommands = {
 for k, v in pairs(commentCommands) do
   keymap(v[1], '<leader>c'..k, v[2], opts)
 end
+
+-- MarkDown
+keymap('n', '<leader><leader>m', ':MarkdownPreviewToggle<CR>', opts)
 
 
 -- -- DAP

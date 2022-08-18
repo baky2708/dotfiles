@@ -106,6 +106,10 @@ return packer.startup(function(use)
   use 'mfussenegger/nvim-lint'
 
   use 'dhruvasagar/vim-zoom'
+
+  -- Markdown
+  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
