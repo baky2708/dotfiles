@@ -42,6 +42,11 @@ keymap('i', '<M-j>', '<C-o>gj', opts)
 keymap('i', '<M-h>', '<left>', opts)
 keymap('i', '<M-l>', '<right>', opts)
 
+-- Motions in Insert Mode
+keymap('i', '<M-w>', '<C-o>w', opts)
+keymap('i', '<M-b>', '<C-o>b', opts)
+keymap('i', '<M-d>', '<C-o>d', opts)
+
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
