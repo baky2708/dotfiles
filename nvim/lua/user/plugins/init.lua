@@ -57,6 +57,11 @@ return packer.startup(function(use)
   use { "lukas-reineke/indent-blankline.nvim", commit = "6177a59552e35dfb69e1493fd68194e673dc3ee2" }
   use { "goolord/alpha-nvim", commit = "ef27a59e5b4d7b1c2fe1950da3fe5b1c5f3b4c94" }
 
+	-- Moviment writer
+	use 'tpope/vim-surround'
+  -- use 'kylechui/nvim-surround'
+	use 'wellle/targets.vim'
+
   -- Colorschemes
   use { "folke/tokyonight.nvim", commit = "8223c970677e4d88c9b6b6d81bda23daf11062bb" }
   use { "lunarvim/darkplus.nvim", commit = "2584cdeefc078351a79073322eb7f14d7fbb1835" }
@@ -110,6 +115,66 @@ return packer.startup(function(use)
 
   -- Markdown
   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
+
+  -- DB
+  use 'kristijanhusak/vim-dadbod-ui'
+  use 'tpope/vim-dadbod'
+
+  -- Motions
+use {
+  'phaazon/hop.nvim',
+  branch = 'v2', -- optional but strongly recommended
+  config = function()
+    -- you can configure Hop the way you like here; see :h hop-config
+    require'hop'.setup { keys = 'aoeuidhtns' }
+  end
+}
+
+  -- https
+use {
+  "NTBBloodbath/rest.nvim",
+  requires = { "nvim-lua/plenary.nvim" },
+  config = function()
+    require("rest-nvim").setup({
+      -- Open request results in a horizontal split
+      result_split_horizontal = false,
+      -- Keep the http file buffer above|left when split horizontal|vertical
+      result_split_in_place = false,
+      -- Skip SSL verification, useful for unknown certificates
+      skip_ssl_verification = false,
+      -- Highlight request on run
+      highlight = {
+        enabled = true,
+        timeout = 150,
+      },
+      result = {
+        -- toggle showing URL, HTTP info, headers at top the of result window
+        show_url = true,
+        show_http_info = true,
+        show_headers = true,
+        -- executables or functions for formatting response body [optional]
+        -- set them to nil if you want to disable them
+        formatters = {
+          json = "jq",
+          html = function(body)
+            return vim.fn.system({"tidy", "-i", "-q", "-"}, body)
+          end
+        },
+      },
+      -- Jump to request line on run
+      jump_to_request = false,
+      env_file = '.env',
+      custom_dynamic_variables = {},
+      yank_dry_run = true,
+    })
+  end
+}
+
+  -- Harpoon
+  use 'ThePrimeagen/harpoon'
+
+  -- use 'mg979/vim-visual-multi'
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

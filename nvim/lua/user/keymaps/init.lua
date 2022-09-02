@@ -1,4 +1,13 @@
+-- number j k
+-- ciw
+-- f t
+-- ; ,
+
+-- True
+-- vim.api.nvim_set_keymap("", "<Space", "<Nop>", { noremap = true, silent = true} )
+
 local opts = { noremap = true, silent = true }
+
 
 local term_opts = { silent = true }
 
@@ -135,6 +144,7 @@ end
 
 -- NvimTree: main key = 'n'
 keymap("n", "<leader>n", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>fk", ":Telescope keymaps<CR>", opts)
 
 -- Telescope: main key = 't'
 
@@ -143,6 +153,7 @@ local telescopeCommands = {
   o = { 'n', ':Telescope live_grep<CR>'},
   e = { 'n', ':Telescope projects<CR>'},
   u = { 'n', ':Telescope buffers<CR>'},
+  i = { 'n', ':Telescope keymaps<CR>'},
 }
 
 for k, v in pairs(telescopeCommands) do
@@ -162,6 +173,56 @@ end
 
 -- MarkDown
 keymap('n', '<leader><leader>m', ':MarkdownPreviewToggle<CR>', opts)
+
+-- Packer Install
+keymap('n', '<leader>p', ':so<CR> :PackerSync<CR>', opts)
+
+-- DB
+keymap('n', '<leader>dbs', ':DBUI<CR>', opts)
+
+vim.cmd[[
+function! QuitFile()
+  let fileName = expand('%:t:r')
+  " echo fileName
+   " if empty(fileName)
+    " exec ':q<CR>'
+   " else
+    exec ':quit!<CR>'
+   " endif
+endfunction
+]]
+
+-- keymap('n', '<leader>q', ':exec QuitFile()<CR> ', opts)
+keymap('n', '<leader>q', ':quit!', opts)
+
+-- Terminal
+
+keymap('n', '<C-/>', ':ToggleTerm<CR>', opts)
+keymap('n', '<leader>/', ':ToggleTerm direction=float<CR>', opts)
+-- keymap('n', '<leader>bo', ':ToggleTerm direction=float<CR>', opts)
+
+keymap('n', '<leader>ra', '<Plug>RestNvim', opts)
+keymap('n', '<leader>ro', '<Plug>RestNvimPreview', opts)
+keymap('n', '<leader>re', '<Plug>RestNvimLast', opts)
+
+-- Harpoon
+vim.cmd [[
+nnoremap <silent><leader>a :lua require("harpoon.mark").add_file()<CR>
+nnoremap <silent><C-e> :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <silent><leader>tc :lua require("harpoon.cmd-ui").toggle_quick_menu()<CR>
+
+nnoremap <silent><M-;> :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <silent><M-,> :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <silent><M-.> :lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap <silent><M-p> :lua require("harpoon.ui").nav_file(4)<CR>
+nnoremap <silent><M-a> :lua require("harpoon.ui").nav_file(5)<CR>
+nnoremap <silent><M-o> :lua require("harpoon.ui").nav_file(6)<CR>
+nnoremap <silent><M-e> :lua require("harpoon.ui").nav_file(7)<CR>
+nnoremap <silent><M-u> :lua require("harpoon.ui").nav_file(8)<CR>
+]]
+
+  -- Selected visual mode
+vim.cmd [[nnoremap <Space>v :call sml#mode_on()<CR>]]
 
 
 -- -- DAP

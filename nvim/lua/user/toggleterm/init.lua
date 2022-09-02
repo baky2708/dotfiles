@@ -6,6 +6,7 @@ end
 toggleterm.setup({
 
 	size = 8,
+	-- open_mapping = [[<c-/>]],
 	open_mapping = [[<c-\>]],
 	hide_numbers = true,
 	shade_terminals = true,
@@ -14,6 +15,7 @@ toggleterm.setup({
 	insert_mappings = true,
 	persist_size = true,
 	direction = "horizontal",
+	-- direction = "float",
 	close_on_exit = true,
 	shell = vim.o.shell,
 	float_opts = {

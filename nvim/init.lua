@@ -20,4 +20,10 @@ require "user.options"
 require "user.lsp"
 require "user.treesitter"
 require "user.toggleterm"
+-- require "user.toggletermFloat"
 require "user.nvim-lint"
+-- require "user.hop"
+-- require "user.rest-nvim"
+-- vim.cmd [[
+-- source hackerrank.vim
+-- ]]
