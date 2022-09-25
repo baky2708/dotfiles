@@ -65,7 +65,8 @@ return packer.startup(function(use)
   -- Colorschemes
   use { "folke/tokyonight.nvim", commit = "8223c970677e4d88c9b6b6d81bda23daf11062bb" }
   use { "lunarvim/darkplus.nvim", commit = "2584cdeefc078351a79073322eb7f14d7fbb1835" }
-	use 'gruvbox-community/gruvbox'
+	-- use 'gruvbox-community/gruvbox'
+  use { "ellisonleao/gruvbox.nvim" }
 
   -- cmp plugins
   use { "hrsh7th/nvim-cmp", commit = "df6734aa018d6feb4d76ba6bda94b1aeac2b378a" } -- The completion plugin
@@ -173,7 +174,13 @@ use {
   -- Harpoon
   use 'ThePrimeagen/harpoon'
 
+  use 'ThePrimeagen/vim-be-good'
+
   -- use 'mg979/vim-visual-multi'
+
+  -- Color
+  use 'norcalli/nvim-colorizer.lua'
+  use 'ziontee113/color-picker.nvim'
 
 
   -- Automatically set up your configuration after cloning packer.nvim

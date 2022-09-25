@@ -12,6 +12,8 @@ local servers = {
   "eslint",
   "jdtls",
   "pyright",
+  "tailwindcss",
+  "marksman",
 }
 
 lsp_installer.setup({

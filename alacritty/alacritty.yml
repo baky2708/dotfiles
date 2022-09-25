@@ -69,7 +69,6 @@
   # The value `0.0` is completely transparent and `1.0` is opaque.
   window:
     opacity: 0.95
-# background_opacity: 0.9
 
   # Startup Mode (changes require restart)
   #
@@ -184,10 +183,9 @@
 #draw_bold_text_with_bright_colors: false
 
 # Colors (Tomorrow Night)
-#colors:
-  # Default colors
-  #primary:
-  #  background: '#1d1f21'
+  colors:
+    primary:
+     background: '#000000'
   #  foreground: '#c5c8c6'
 
     # Bright and dim foreground colors

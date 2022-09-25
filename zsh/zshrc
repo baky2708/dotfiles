@@ -120,9 +120,11 @@ alias tx="tmuxinator"
 alias txc="nvim ~/.config/tmuxinator/"
 alias bim="vim -u ~/02-me/vim/typewriter/vim-base/vimrc"
 alias otx="lua ~/02-me/lua/auto-tmuxinator/tx.lua"
+# alias tmux="TERM=screen-256color-bce tmux"
 alias me="cd ~/02-me/"
 alias trybe="cd ~/01-trybe"
 alias wm="lua ~/02-me/lua/workflow-manager/workflow"
+# alias wm="node ~/02-me/node/workflow-manager/src/index.js"
 alias ls="exa --icons "
 alias getcode="lua ~/02-me/lua/get-code/get-code"
 alias work="cd ~/03-trybe-work/"
@@ -137,11 +139,11 @@ alias n='nvim'
 . $HOME/.asdf/asdf.sh
 export PATH=$HOME/.local/scripts:$PATH
 #autosuggestion
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # bin asdf node
 export PATH="$HOME/.asdf/installs/nodejs/18.2.0/.npm/bin/:$PATH"
 
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # add brew
 # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
