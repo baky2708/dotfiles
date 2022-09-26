@@ -1,0 +1,20 @@
+#!/bin/sh
+
+arg=$1
+directory='~/03-trybe-work'
+
+if [ -z $arg ]; then
+# echo 'hei'
+  # cd $(echo $directory)
+  cd $(echo $directory)
+  echo $(cd $(ls))
+  # clear
+  # exec zsh
+# else
+  # echo 'arg'
+  # cd $(directory)
+  # cd $(echo $/${array[$selected]})
+  # cd $(ls)
+  # clear
+  # exec zsh
+fi

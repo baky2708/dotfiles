@@ -1,14 +1,14 @@
 #---------- BASIC SYSTEM
 
 # assign [class="chrome"] 2
-assign [class="zoom"] 6
-assign [class="Slack"] 5
+assign [class="zoom"] 8
+assign [class="Slack"] 6
 assign [class="obs"] 9
-assign [class="discord"] 6
+assign [class="discord"] 7
 # assign [instance="www.localhost - Google Chrome"] 4
 # bindsym $mod+m exec firefox --new-window --app=https://www.reddit.com/
-for_window [title="^localhost*"] move window to workspace $ws4
-for_window [title="^ReactApp*"] move window to workspace $ws4
+# for_window [title="^localhost*"] move window to workspace $ws4
+# for_window [title="^ReactApp*"] move window to workspace $ws4
 
 # mark current window
 bindsym $mod+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
@@ -49,6 +49,11 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+set $ws11 "11"
+set $ws12 "12"
+set $ws13 "13"
+set $ws14 "14"
+set $ws15 "15"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -56,11 +61,18 @@ bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
 bindsym $mod+4 workspace number $ws4
 bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+
+bindsym $mod+semicolon workspace number $ws6
+bindsym $mod+comma workspace number $ws7
+bindsym $mod+period workspace number $ws8
+bindsym $mod+p workspace number $ws9
+bindsym $mod+y workspace number $ws10
+
+bindsym $mod+6 workspace number $ws11
+bindsym $mod+7 workspace number $ws12
+bindsym $mod+8 workspace number $ws13
+bindsym $mod+9 workspace number $ws14
+bindsym $mod+0 workspace number $ws15
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -68,11 +80,23 @@ bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
 bindsym $mod+Shift+4 move container to workspace number $ws4
 bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+# bindsym $mod+Shift+6 move container to workspace number $ws6
+# bindsym $mod+Shift+7 move container to workspace number $ws7
+# bindsym $mod+Shift+8 move container to workspace number $ws8
+# bindsym $mod+Shift+9 move container to workspace number $ws9
+# bindsym $mod+Shift+0 move container to workspace number $ws10
+
+bindsym $mod+Shift+semicolon move container to workspace number $ws6
+bindsym $mod+Shift+comma move container to workspace number $ws7
+bindsym $mod+Shift+period move container to workspace number $ws8
+bindsym $mod+Shift+p move container to workspace number $ws9
+bindsym $mod+Shift+y move container to workspace number $ws10
+
+bindsym $mod+Shift+6 move container to workspace number $ws11
+bindsym $mod+Shift+7 move container to workspace number $ws12
+bindsym $mod+Shift+8 move container to workspace number $ws13
+bindsym $mod+Shift+9 move container to workspace number $ws14
+bindsym $mod+Shift+0 move container to workspace number $ws15
 
 # Restart i3
 bindsym $mod+Shift+r restart
@@ -130,7 +154,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal and vertical orientation
-bindsym $mod+semicolon split toggle
+bindsym $mod+sinthetic split toggle
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -159,6 +183,7 @@ bindsym $mod+Shift+d exec  alacritty -e nvim ~/Projects/dotfiles
 # start browser
 # bindsym $mod+Shift+Return exec firefox
 bindsym $mod+Shift+Return exec google-chrome-stable
+# bindsym $mod+Shift+Return exec firefox
 # bindsym $mod+Control+Return exec --no-startup-id i3-msg 
 
 # bindsym $mod+Shift+Return exec firefox
@@ -286,12 +311,15 @@ mode "move" {
 
 
 bindsym $mod+o mode "$mode_Laucher"
+set $open_new_tab_firefox exec firefox --new-tab
+set $open_new_window_firefox exec firefox --new-window
 
 set $mode_Laucher Laucher: [b]rowsers [a]pps
 
 mode "$mode_browser" {
     bindsym f exec firefox
     bindsym c exec google-chrome-stable
+    bindsym t $open_new_tab_firefox https://github.com/betrybe/course/milestone/195; $open_new_tab_firefox https://github.com/orgs/betrybe/projects/16?card_filter_query=milestone%3A%22%5Bfront-end%5D+sprint+126%22; $open_new_tab_firefox https://app.betrybe.com/login; $open_new_tab_firefox http://localhost:1313; mode "default"
 
     bindsym e mode "default"
     bindsym Escape mode "default"
@@ -305,10 +333,16 @@ mode "$mode_Laucher" {
     bindsym Return mode "default"
     }
 
-set $mode_browser Browser: [f]irefox [c]hrome c[h]romiun [e]xit
+set $mode_browser Browser: [f]irefox [c]hrome c[h]romiun [e]xit [t]rybe
+
+# bindsym exec --no-startup-id i3-msg 'workspace 1:Web; exec /usr/bin/firefox'
+# bindsym $mod+e exec i3-msg 'workspace 1:Web; exec /usr/bin/firefox'
+bindsym $mod+e exec i3-msg 'workspace 1; exec firefox'
 
 # bindsym $mod+Control Left resize shrink width 5px or 5ppt
 # bindsym $mod+Control Up resize grow height 5px or 5ppt
 # bindsym $mod+Control Down resize shrink height 5px or 5ppt
 
 #---------- END MODES
+
+bindsym $mod+space exec wmfocus -c aoeu;

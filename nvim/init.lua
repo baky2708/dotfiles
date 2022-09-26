@@ -1,11 +1,33 @@
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-end
+require "user.keymaps"
+require "user.plugins"
+require "user.autocommands"
+require "user.colorscheme"
+require "user.cmp"
+require "user.alpha"
+require "user.autopairs"
+require "user.bufferline"
+require "user.comments"
+require "user.dap"
+require "user.gitsigns"
+require "user.illuminate"
+require "user.impatient"
+require "user.indentline"
+require "user.lualine"
+require "user.nvim-tree"
+require "user.project"
+require "user.telescope"
+require "user.options"
+require "user.lsp"
+require "user.treesitter"
+require "user.toggleterm"
+require "user.color-picker"
+require "user.colorizer"
+require "user.markdown-lint"
 
--- Master configs
-require('settings')
-require('plugins')
-require('keymappings')
-require('after')
+-- require "user.toggletermFloat"
+require "user.nvim-lint"
+-- require "user.hop"
+-- require "user.rest-nvim"
+-- vim.cmd [[
+-- source hackerrank.vim
+-- ]]
