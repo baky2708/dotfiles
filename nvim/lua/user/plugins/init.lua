@@ -182,6 +182,9 @@ use {
   use 'norcalli/nvim-colorizer.lua'
   use 'ziontee113/color-picker.nvim'
 
+  -- Calender
+  use 'itchyny/calendar.vim'
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

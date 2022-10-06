@@ -14,6 +14,7 @@ local servers = {
   "pyright",
   "tailwindcss",
   "marksman",
+  "intelephense",
 }
 
 lsp_installer.setup({

@@ -151,5 +151,8 @@ export PATH="$HOME/.asdf/installs/nodejs/18.2.0/.npm/bin/:$PATH"
 # add bin to path
 export PATH=$PATH:$HOME/bin
 
+# composer - php
+export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+
 # java_home
 . ~/.asdf/plugins/java/set-java-home.zsh
