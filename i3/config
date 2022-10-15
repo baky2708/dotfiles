@@ -181,8 +181,8 @@ bindsym $mod+r exec alacritty -e "ranger"
 # start a typewriter
 bindsym $mod+Shift+d exec  alacritty -e nvim ~/Projects/dotfiles
 # start browser
-# bindsym $mod+Shift+Return exec firefox
-bindsym $mod+Shift+Return exec google-chrome-stable
+bindsym $mod+Shift+Return exec firefox
+#bindsym $mod+Shift+Return exec google-chrome-stable
 # bindsym $mod+Shift+Return exec firefox
 # bindsym $mod+Control+Return exec --no-startup-id i3-msg 
 
@@ -207,8 +207,8 @@ exec --no-startup-id nitrogen --restore
 #Start picom(tranparent)
 exec --no-startup-id picom -b 
 
-#Swap caps lock
-exec_always ~/.local/scripts/swapcap
+#Start polybar
+exec_always $HOME/.config/polybar/launch.sh
 
 #---------- END START
 
@@ -240,10 +240,10 @@ for_window [class="^.*"] border pixel 3
 
 
 #---------- STATUS/BLOCKS BAR 
-bar {
-        status_command i3blocks
+#bar {
+        #status_command i3blocks
 
-}
+#}
 
 #---------- END STATUS/BLOCKS BAR
 
@@ -262,16 +262,16 @@ set $swapcaps ~/Projects/dotfiles/xconfig/swapcaps
 # bindsym $mod+br exec setxkbmap "br" && $swapcaps
 
 #Change Layout baky
-bindsym F9 exec setxkbmap -layout "baky" -variant "real-dvp-intl" && $swapcaps
+bindsym F9 exec setxkbmap -layout "baky" -variant "real-dvp-intl" -option ctrl:swapcaps
 
 #Change Layout Dvorak intl
-bindsym F10 exec setxkbmap -layout "us" -variant "dvorak-intl" && $swapcaps
+bindsym F10 exec setxkbmap -layout "us" -variant "dvorak-intl" -option ctrl:swapcaps
 
 #Change Layout Dvorak-l
-bindsym F11 exec setxkbmap -layout "us" -variant "dvorak-l" && $swapcaps
+bindsym F11 exec setxkbmap -layout "us" -variant "dvorak-l" -option ctrl:swapcaps
 
 #Change Layout Us intl
-bindsym F12 exec setxkbmap -layout "us" -variant "intl" && $swapcaps
+bindsym F12 exec setxkbmap -layout "us" -variant "intl" -option ctrl:swapcaps
 
 #---------- END KEYBOARD
 
@@ -346,3 +346,7 @@ bindsym $mod+e exec i3-msg 'workspace 1; exec firefox'
 #---------- END MODES
 
 bindsym $mod+space exec wmfocus -c aoeu;
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
